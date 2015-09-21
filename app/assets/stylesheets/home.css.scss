@@ -1,0 +1,48 @@
+.container-home {
+  background-color: $blue;
+  background-image: image-url("home-header.jpg");
+  background-size: cover;
+  background-postion: 50% 50%;
+  opacity: .9;
+  min-height: 70vh;
+}
+
+.container-login {
+  background-color: white;
+  min-height: 30vh;
+  text-align: center;
+}
+
+.home {
+  font-weight: 100;
+  font-size: 100;
+}
+
+h1.home {
+  font-size: 70px;
+  font-weight: 300;
+  color: $brown;
+}
+
+h2.home {
+  font-size: 50px;
+  color: $orange;
+}
+
+a.btn.btn-lg.btn-default.btn-home {
+  background-color: transparent;
+  border-width: 2px;
+  color: $brown;
+  font-weight: 800;
+  border-color: $orange;
+  margin-top: 15px;
+  margin-bottom: 5%;
+}
+
+a.btn.btn-lg.btn-default.btn-home:hover {
+  opacity: 0.4;
+}
+
+img.img-circle.img-thumbnail.home-image {
+  height: 200px;
+}
