@@ -12,6 +12,9 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "color_routes"
 gem "awesome_print"
 
+gem 'figaro'
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem "pry"
   gem "launchy"
