@@ -1,1 +1,8 @@
-<h1>YYYEEEEEAAAAYYYY</h1>
+<div class="container-fluid container-map"></div>
+
+<div class="col-md-2">
+  <%= image_tag current_user.image_url, class: "img-circle img-thumbnail dashboard-image" %>
+  <p class="dashboard"> <%= current_user.username %></p>
+  <%= link_to "Logout", logout_path, class: "btn btn-sm btn-default btn-logout" %>
+</div>
+<div class="col-md-10"></div>
