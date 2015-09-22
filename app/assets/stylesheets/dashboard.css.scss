@@ -1,7 +1,16 @@
-.container-map {
-  background-color: $blue;
-  background-size: cover;
-  background-postion: 50% 50%;
-  opacity: .9;
-  min-height: 70vh;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 70%;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+.img-circle {
+  width: 70%;
 }
