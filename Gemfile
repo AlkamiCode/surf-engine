@@ -17,9 +17,16 @@ gem 'figaro'
 gem 'omniauth-facebook'
 
 group :development, :test do
+  gem "rspec-rails"
+  gem "capybara"
   gem "pry"
   gem "launchy"
   gem "better_errors"
   gem "binding_of_caller"
   gem "simplecov"
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
