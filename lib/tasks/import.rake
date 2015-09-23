@@ -4,7 +4,7 @@ require 'pry'
 desc "Import HTML files into an ActiveRecord tables"
 task :import => :environment do
   @count = 0
-  Dir.glob("/Users/Dmitry/turing3/nokiparse/north_america/*").each do |html_file|
+  Dir.glob("/Users/Dmitry/turing3/nokiparse/north_america/*").sample(5).each do |html_file|
 
     doc = Nokogiri::HTML(File.open(html_file))
     puts @count+=1
@@ -44,6 +44,15 @@ task :import => :environment do
 
 
     if doc.xpath("//*[@id='wanna-item-2columns-left']").children[11].text.match(/\Latitude.*/)
+      latitude = doc.xpath("//*[@id='wanna-item-2columns-left']").children[11].text.match(/\Latitude..*/)[0].split("Longitude: ").first[9..-1]
+      lat_split = latitude[0..-4].split("°")
+      puts "Lat: #{lat_split[0].to_f+(((lat_split[1].to_f*60))/3600)}"
+
+      longitude = doc.xpath("//*[@id='wanna-item-2columns-left']").children[11].text.match(/\Longitude.*/)[0][11..-1]
+      lon_split = longitude[0..-4].split("°")
+      puts "Lon: #{-(lon_split[0].to_f+(((lon_split[1].to_f*60))/3600))}"
+
+
       puts "Latitude: #{doc.xpath("//*[@id='wanna-item-2columns-left']").children[11].text.match(/\Latitude..*/)[0].split("Longitude: ").first[9..-1]}"
       puts "Longitude: #{doc.xpath("//*[@id='wanna-item-2columns-left']").children[11].text.match(/\Longitude.*/)[0][11..-1]}"
     else
