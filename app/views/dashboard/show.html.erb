@@ -12,7 +12,8 @@
       }
       #map {
         height: 70%;
-        width: 1024px;
+        /*width: 1024px;*/
+        width: 70%;
       }
 .controls {
   margin-top: 10px;
@@ -111,6 +112,9 @@
 
       <input type="radio" name="type" id="changetype-geocode">
       <label for="changetype-geocode">Geocodes</label>
+
+      <input type="radio" name="type" id="changetype-spot">
+      <label for="changetype-spot">Spots</label>
     </div>
     <div id="map"></div>
 
@@ -122,8 +126,8 @@ function initMap() {
         stylers: [
           {hue: '#70BBB5'},
           {visibility: 'simplified'},
-          {gamma: 0.5},
-          {weight: 0.5}
+          {gamma: 0.3},
+          {weight: 0.6}
         ]
       },
       {
@@ -131,7 +135,8 @@ function initMap() {
         stylers: [{visibility: 'off'}]
       },
       {
-        featureType: 'water',
+        // featureType: 'water',
+        featureType: "administrative",
         stylers: [{color: '#70BBB5'}]
       }
     ], {
@@ -144,9 +149,12 @@ function initMap() {
     center: {lat: 0, lng: 0},
     zoom: minZoomLevel
   });
+
+  // Limit the zoom level
   google.maps.event.addListener(map, 'zoom_changed', function() {
      if (map.getZoom() < minZoomLevel) map.setZoom(minZoomLevel);
    });
+
 
   var input = /** @type {!HTMLInputElement} */(
       document.getElementById('pac-input'));
@@ -212,16 +220,18 @@ function initMap() {
     });
   }
 
+
   setupClickListener('changetype-all', []);
   setupClickListener('changetype-address', ['address']);
   setupClickListener('changetype-establishment', ['establishment']);
   setupClickListener('changetype-geocode', ['geocode']);
+  setupClickListener('changetype-spot', ['spot']);
 
   map.mapTypes.set(customMapTypeId, customMapType);
   map.setMapTypeId(customMapTypeId);
 }
 </script>
-    <script src="https://maps.googleapis.com/maps/api/js?Figaro.env.env.GOOGLE_MAPS_KEY&signed_in=true&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?Figaro.env.env.GOOGLE_MAPS_KEY&libraries=places&callback=initMap"
         async defer></script>
   </body>
 </html>
