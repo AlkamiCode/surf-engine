@@ -16,6 +16,7 @@ gem "awesome_print"
 
 gem 'figaro'
 gem 'omniauth-facebook'
+gem 'puma'
 
 group :development, :test do
   gem "rspec-rails"
