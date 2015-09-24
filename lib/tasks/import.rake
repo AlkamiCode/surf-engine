@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'pry'
 
 desc "Import HTML files into an ActiveRecord tables"
 task :import => :environment do
