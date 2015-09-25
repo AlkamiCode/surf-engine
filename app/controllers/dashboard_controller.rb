@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
   before_action :authorize!
 
   def show
-    @spot = Spot.first
+    @spots = Spot.all
   end
 end

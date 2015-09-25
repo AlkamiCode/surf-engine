@@ -1,102 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Place Autocomplete</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 70%;
-        /*width: 1024px;*/
-        width: 70%;
-      }
-.controls {
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
 
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
-}
 
-#pac-input:focus {
-  border-color: #4d90fe;
-}
 
-.pac-container {
-  font-family: Roboto;
-}
 
-#type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-</style>
-
-</head>
-  <body>
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">SURFIESTA</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">North America</a></li>
-            <li><a href="#">Central America</a></li>
-            <li><a href="#">South America</a></li>
-            <li><a href="#">Africa</a></li>
-            <li><a href="#">Australia</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Logout", logout_path %></li>
-        <li><%= link_to current_user.username %></li>
-        <li><%= image_tag current_user.image_url, class: "img-circle img-thumbnail dashboard-image" %></li>
-      </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <%= render "layouts/navbar" %>
 
     <input id="pac-input" class="controls" type="text"
         placeholder="Enter a location">
@@ -112,13 +18,34 @@
 
       <input type="radio" name="type" id="changetype-geocode">
       <label for="changetype-geocode">Geocodes</label>
-
-      <input type="radio" name="type" id="changetype-spot">
-      <label for="changetype-spot">Spots</label>
     </div>
-    <div id="map"></div>
+
+
+
+<div class="col-md-3 sidebar">
+  <div class="filter">
+    <label>Filter By Name</label>
+    <%= text_field :spot, :filter_name %>
+  </div>
+
+  <div class="spots">
+    <% @spots.each do |spot| %>
+      <div class="spot" data-name="<%= spot.name %>">
+        <%= link_to spot.name, "#", class: "spot-name"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id="map" class="col-md-9"></div>
+
+<div class="col-md-9 spot-info"></div>
+
+
+
+
 
 <script>
+
 function initMap() {
 
   var customMapType = new google.maps.StyledMapType([
@@ -225,7 +152,6 @@ function initMap() {
   setupClickListener('changetype-address', ['address']);
   setupClickListener('changetype-establishment', ['establishment']);
   setupClickListener('changetype-geocode', ['geocode']);
-  setupClickListener('changetype-spot', ['spot']);
 
   map.mapTypes.set(customMapTypeId, customMapType);
   map.setMapTypeId(customMapTypeId);
@@ -233,5 +159,3 @@ function initMap() {
 </script>
     <script src="https://maps.googleapis.com/maps/api/js?Figaro.env.GOOGLE_MAPS_KEY&libraries=places&callback=initMap"
         async defer></script>
-  </body>
-</html>
