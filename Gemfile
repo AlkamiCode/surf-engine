@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 gem "rails", "4.2.3"
 gem "pg"
@@ -14,9 +14,10 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "color_routes"
 gem "awesome_print"
 
-gem 'figaro'
-gem 'omniauth-facebook'
-gem 'puma'
+gem "figaro"
+gem "omniauth-facebook"
+gem "puma"
+gem "responders"
 
 group :development, :test do
   gem "rspec-rails"
@@ -29,6 +30,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'vcr'
-  gem 'webmock'
+  gem "vcr"
+  gem "webmock"
 end
