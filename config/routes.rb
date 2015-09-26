@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   get  "/dashboard", to: "dashboard#show"
   root "home#show"
+
   get  "/spots", to: "spots#index"
+  get  "/spot/:id", to: "spots#show"
 end
