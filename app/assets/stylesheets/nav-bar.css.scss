@@ -1,0 +1,19 @@
+.navbar {
+  margin-bottom: 0px;
+}
+.img-circle {
+  width: 70%;
+}
+
+.filter {
+  padding-top: .5em;
+  label {
+    font-size: 0.8em;
+    &:after {
+      content: ': ';
+    }
+  }
+  select, input {
+    margin-right: 1em;
+  }
+}

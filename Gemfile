@@ -13,6 +13,7 @@ gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "color_routes"
 gem "awesome_print"
+gem 'jquery-ui-rails'
 
 gem "figaro"
 gem "omniauth-facebook"
