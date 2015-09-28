@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with Spot.all
+    respond_with Spot.all.first(5)
   end
 
   def show
