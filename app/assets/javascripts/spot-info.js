@@ -2,9 +2,51 @@ function add_handler(spot) {
   spot.on("click", function(){
     console.log(spot.data('lat'))
     console.log(spot.data('lon'))
-    // debugger;
+    position = {lat: spot.data('lat'), lng: spot.data('lon')}
+    clearMarkers();
+    addMarkerWithTimeout(position, 500)
   });
 }
+
+var neighborhoods = [
+];
+
+var markers = [];
+var map;
+
+function initMap() {
+  var minZoomLevel = 2;
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 0, lng: 0},
+    zoom: minZoomLevel,
+    mapTypeControl: false
+  });
+}
+
+// function drop() {
+//   clearMarkers();
+//   for (var i = 0; i < neighborhoods.length; i++) {
+//     addMarkerWithTimeout(neighborhoods[i], i * 200);
+//   }
+// }
+
+function addMarkerWithTimeout(position, timeout) {
+  window.setTimeout(function() {
+    markers.push(new google.maps.Marker({
+      position: position,
+      map: map,
+      animation: google.maps.Animation.DROP
+    }));
+  }, timeout);
+}
+
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+}
+
 
 $(document).ready(function(){
   // $('#accordion').append("<h3><a href='#'>NEW TAB</a></h3><div><p>Check Out This Data</p></div>");

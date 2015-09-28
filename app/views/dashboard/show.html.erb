@@ -8,8 +8,11 @@
 <div id="map" class="col-md-9"></div>
 
 <div class="col-md-9" id="spot-info-field">
+  <div id="floating-panel">
+      <button id="drop" onclick="drop()">Drop Markers</button>
+     </div>
 </div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?Figaro.env.GOOGLE_MAPS_KEY&libraries=places&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?Figaro.env.GOOGLE_MAPS_KEY&signed_in=true&callback=initMap"
     async defer></script>
