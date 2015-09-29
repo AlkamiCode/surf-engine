@@ -1,3 +1,5 @@
+var image = 'assets/24-px-surf-icon.png';
+
 function add_handler(spot) {
   spot.on("click", function(){
     console.log(spot.data('lat'))
@@ -11,9 +13,10 @@ function add_handler(spot) {
 function addMarkerWithTimeout(position, timeout) {
   window.setTimeout(function() {
     markers.push(new google.maps.Marker({
-      position: position,
-      map: map,
+      position:  position,
+      map:       map,
       animation: google.maps.Animation.DROP,
+      icon:      image,
       // animation: google.maps.Animation.BOUNCE
     }));
   }, timeout);
