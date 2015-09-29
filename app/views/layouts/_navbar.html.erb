@@ -42,7 +42,7 @@
         </form>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Logout", logout_path %></li>
+          <li><a href="/logout" data-toggle="tooltip" title="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
           <li><%= link_to current_user.username %></li>
           <li><%= image_tag current_user.image_url, class: "img-circle img-thumbnail dashboard-image" %></li>
         </ul>

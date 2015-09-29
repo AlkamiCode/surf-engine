@@ -1,5 +1,8 @@
 $(document).ready(function(){
   $(".region").on("click", function(){
+    $('#search-hand').hide();
+    var currentRegion = this.text;
+
     $.ajax({
       type: "GET",
       url:  "/spots",
