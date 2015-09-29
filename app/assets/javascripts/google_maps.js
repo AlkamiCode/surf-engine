@@ -7,7 +7,7 @@ function initMap() {
         stylers: [
           {hue: '#70BBB5'},
           {visibility: 'simplified'},
-          {gamma: 0.3},
+          {gamma: 0.2},
           {weight: 0.6}
         ]
       },
