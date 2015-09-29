@@ -14,7 +14,7 @@ function addMarkerWithTimeout(position, timeout) {
       position: position,
       map: map,
       animation: google.maps.Animation.DROP,
-      animation: google.maps.Animation.BOUNCE
+      // animation: google.maps.Animation.BOUNCE
     }));
   }, timeout);
 }

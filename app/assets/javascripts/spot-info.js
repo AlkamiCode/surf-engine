@@ -2,8 +2,8 @@ $(document).ready(function(){
   // $('#accordion').append("<h3><a href='#'>NEW TAB</a></h3><div><p>Check Out This Data</p></div>");
   $.ajax({
     type: "GET",
-    // url:  "http://localhost:3000/spots",
-    url:  "https://surfiesta.herokuapp.com/spots",
+    url:  "http://localhost:3000/spots",
+    // url:  "https://surfiesta.herokuapp.com/spots",
     success: function(spots){
       dom_spots = $(".spots");
       $.each(spots, function(index, spot){

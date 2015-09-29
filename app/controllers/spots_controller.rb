@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with Spot.all.first(5)
+    respond_with Spot.all.sample(50)
   end
 
   def show
