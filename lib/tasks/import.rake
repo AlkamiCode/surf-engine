@@ -3,9 +3,10 @@ require 'nokogiri'
 desc "Import HTML files into an ActiveRecord tables"
 task :import => :environment do
   count  = 0
-  region = Region.create!(name: "North America")
 
-  Dir.glob("/Users/Dmitry/turing3/nokiparse/north_america/*").each do |html_file|
+  region = Region.create!(name: region)
+
+  Dir.glob("db/north_america/*").each do |html_file|
     puts count+=1
 
     doc = Nokogiri::HTML(File.open(html_file))
@@ -13,6 +14,8 @@ task :import => :environment do
     spot_name = doc.css("#wanna-item-2columns-left > h1 > a").text
     country   = doc.css("#wanna-item-2columns-left > h2 > a").text.split(", ")[0]
     zone      = doc.css("#wanna-item-2columns-left > h2 > a").text.split(", ")[1]
+    # region    = doc.xpath("//*[@id='wanna-breadcrumbs']/a[3]").text
+    # puts "Region        #{region}"
     puts "Spot Name:    #{spot_name}"
     puts "Country:      #{country}"
     puts "Zone:         #{zone}"
@@ -23,7 +26,7 @@ task :import => :environment do
 
     country  = Country.create!(name: country, region_id: region.id)
     zone     = Zone.create!(name: zone, country_id: country.id)
-    sub_zone =SubZone.create!(name: sub_zone ||= "No sub zone", zone_id: zone.id)
+    sub_zone = SubZone.create!(name: sub_zone ||= "No sub zone", zone_id: zone.id)
 
     puts "-----------------------------"
     spot_quality = doc.xpath("//*[@id='wanna-item-specific-2columns-left']").text.split("\n").last(11).reject!(&:empty?)

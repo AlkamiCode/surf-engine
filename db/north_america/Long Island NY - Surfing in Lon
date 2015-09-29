@@ -1,0 +1,2771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Long Island NY - Surfing in Long Island NY, United States of America - WannaSurf, surf spots atlas, surfing photos, maps, GPS location</title>
+<meta name="description" content="WannaSurf - Free illustrated atlas of surf spots and surfing worldwide with maps of surf spots, detailed descriptions and photos. All the best weather and forecast maps. An interactive environment provides messages, reports and data editing.">
+<meta name="keywords" content="surf,surfing,spot,spots,map,maps,atlas,forecast,wave,swell,report,photo,photos,wannasurf">
+<link rel="icon" href="/template/wannaskin2/images/favicon.gif" type="image/gif">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-language" content="en">
+<meta name="Author" content="Wannasurf.com Ltd">
+<meta name="Copyright" content="Wannasurf.com Ltd">
+<style type="text/css">
+/* Generated CSS header */
+#wanna-header-photo {
+	background-repeat: no-repeat; background-position:left bottom;
+	background-image: url(/template/wannasurf/images/header/NAS_6384_980x200.jpg); height: 200px;
+}
+.wanna-slogan-1, .wanna-slogan-2{ color: #FFF }
+
+</style>
+<script src="/common/combined/js.php" type="text/javascript"></script><link href="/common/combined/css.php" rel="stylesheet" type="text/css">
+<!--[if IE]>
+  <link href="/common/jquery/plugins/bubbletip/js/bubbletip/bubbletip-IE.css" rel="stylesheet" type="text/css" />
+  <![endif]--><link rel="alternate" type="application/rss+xml" title="Wannasurf all updates" href="http://www.wannasurf.com/news/news_all.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf surf spot updates" href="http://www.wannasurf.com/news/news_spot.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf countries and zones updates" href="http://www.wannasurf.com/news/news_country_zone.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf photo updates" href="http://www.wannasurf.com/news/news_photo.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf video updates" href="http://www.wannasurf.com/news/news_video.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf comments updates" href="http://www.wannasurf.com/news/news_comment.rss">
+<link rel="alternate" type="application/rss+xml" title="Wannasurf community updates" href="http://www.wannasurf.com/news/news_community.rss">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/theme/default/style.css" type="text/css">
+<style text="text/css">
+/**
+ * OpenLayers Map Specific
+ */
+.mapBBOX-small {
+    width      : 417px;
+    height     : 370px;
+    border: 1px solid #ccc;
+}
+#map{FORM_NAME} {
+    background : #7391ad;
+    border     : 0;
+}
+.olControlPanel {
+    position: absolute;
+    top: 125px;
+    left: 18px;
+    width: 18px;
+    height: 18px;
+    /*border: 1px solid red;*/
+}
+.olControlWannaLabelItemInactive {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:  18px;  
+    height: 18px;
+    background-image: url("/template/wannaskin2/images/wanna-openlayers-label-icon.png");
+}
+.olControlWannaLabelItemActive { 
+    width:  18px;  
+    height: 18px;
+    background-image: url("/template/wannaskin2/images/wanna-openlayers-label-icon.png");
+}
+.olControlNavToolbar {
+    position: absolute;
+    top: 150px;
+}
+.olControlAttribution {
+    text-align : right;
+    bottom: 3px;
+}
+    </style>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/OpenLayers.js"></script><script src="http://maps.google.com/maps/api/js?v=3.999&amp;sensor=false"></script><script>
+<!--  to hide script contents from old browsers &amp; W3C validator
+
+// Main openlayers map
+var wannaMap;
+
+// World Geodetic System 1984 projection
+var WGS84 = new OpenLayers.Projection("EPSG:4326");
+ 
+// WGS84 Google Mercator projection
+var WGS84_google_mercator = new OpenLayers.Projection("EPSG:900913");
+
+var wannaControlPanel;
+var wannaShowLabels = true;
+
+function wanna_map_init(){
+	
+	//--- Base map
+	wannaMap = new OpenLayers.Map({
+		div: "mapBBOX",
+		controls:[
+	      	     new OpenLayers.Control.Navigation(),    //Allows user pan/zoom ability
+		     new OpenLayers.Control.PanZoom(),	     //Displays the pan/zoom tools
+		     new OpenLayers.Control.LayerSwitcher(), //Displays a layer switcher
+		     new OpenLayers.Control.Attribution(),   //Display attributions
+		],
+    		projection: WGS84_google_mercator,
+		displayProjection: WGS84
+	});
+	
+	var gmap_st = new OpenLayers.Layer.Google("Google Streets",{numZoomLevels: 20});
+	var gmap_ph = new OpenLayers.Layer.Google("Google Physical",{type: google.maps.MapTypeId.TERRAIN, numZoomLevels: 20});
+	var gmap_hy = new OpenLayers.Layer.Google("Google Hybrid",{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 22});
+	var gmap_sa = new OpenLayers.Layer.Google("Google Satellite",{type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22});
+	
+	var mapnik = new OpenLayers.Layer.OSM("Mapnik OpenStreetMap");
+	mapnik.attribution = "Data, imagery and map information provided by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a> and contributors, CC-BY-SA";
+	var mapquest_osm = new OpenLayers.Layer.XYZ("MapQuest OpenStreetMap", [
+                "http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+                "http://otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+                "http://otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+                "http://otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png"
+            ], { attribution: "Data, imagery and map information provided by <a href='http://www.mapquest.com/'  target='_blank'>MapQuest</a>, <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a> and contributors, CC-BY-SA",
+                transitionEffect: "resize", numZoomLevels: 19
+            }
+        );
+	var esri = new OpenLayers.Layer.XYZ( "ESRI World Topo Map",
+                    "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/${z}/${y}/${x}", {
+		    sphericalMercator: true,
+		    attribution: "Data, imagery and map information provided by <a href='http://www.arcgis.com'>ESRI ArcGis</a> mapserver"
+		    });
+	var ovi_street = new OpenLayers.Layer.XYZ("OVI Street", ["http://a.maptile.maps.svc.ovi.com/maptiler/maptile/newest/normal.day/${z}/${x}/${y}/256/png8",
+                                                "http://b.maptile.maps.svc.ovi.com/maptiler/maptile/newest/normal.day/${z}/${x}/${y}/256/png8"], {
+						transitionEffect: 'resize',
+						sphericalMercator: true,
+						numZoomLevels: 21,
+						attribution: "Data, imagery and map information provided by <a href='http://api.maps.ovi.com'>OVI</a> mapserver"
+						});
+        var ovi_satellite = new OpenLayers.Layer.XYZ("OVI Satellite", ["http://e.maptile.maps.svc.ovi.com/maptiler/maptile/newest/hybrid.day/${z}/${x}/${y}/256/png8",
+                                                   "http://f.maptile.maps.svc.ovi.com/maptiler/maptile/newest/hybrid.day/${z}/${x}/${y}/256/png8"], {
+						   transitionEffect: 'resize', sphericalMercator: true, numZoomLevels: 21, attribution: "Data, imagery and map information provided by <a href='http://api.maps.ovi.com'>OVI</a> mapserver"
+						   });
+
+
+	//--- BEGIN Wanna layer
+	// Wanna layer styling
+	var wannaLayerStyle = new OpenLayers.StyleMap(OpenLayers.Util.applyDefaults({
+		 externalGraphic: "http://mw1.google.com/mw-earth-vectordb/dynamic/wannacorp/template/wannasurf/images/gps_exact.png",
+		 graphicWidth: 32,
+		 graphicHeight: 32,
+		 fillOpacity: 1,
+		 label: "${name}",
+		 labelAlign: "cb",
+		 labelYOffset:-20,
+		 fontColor: "#666666",
+		 fontFamily: "Arial",
+		 fontSize: "12px",
+		 fontWeight: "normal"
+		 },
+		OpenLayers.Feature.Vector.style["default"]
+	));
+	wannaVectorLayer = new OpenLayers.Layer.Vector("Wannasurf surf spots", {
+	        attribution: "Wannasurf surf spots provided by Wannasurf.com Ltd",
+		strategies: [new OpenLayers.Strategy.Refresh({force:true}), new OpenLayers.Strategy.BBOX({ratio:2, resFactor: 3})],
+		projection: WGS84,
+		styleMap: wannaLayerStyle,
+		protocol: new OpenLayers.Protocol.HTTP({
+			url: "/common/services/search-by-coordinates-gmap.php",
+			params: {'120d03a4bb1b':'c1c5502c-d021-4a30-b1bb-cdcf8537dae7'},
+			format: new OpenLayers.Format.KML({
+				extractStyles: false, 
+				extractAttributes: true,
+				maxDepth: 2
+			})
+		})
+	});
+	wannaSelect = new OpenLayers.Control.SelectFeature(wannaVectorLayer);
+	wannaVectorLayer.events.on({
+		"featureselected": onFeatureSelect,
+		"featureunselected": onFeatureUnselect
+	});
+	wannaMap.addControl(wannaSelect);
+	wannaSelect.activate();
+	//--- END Wanna layer
+	
+	//--- Add label button
+	var wannaToggleLayerbutton = new OpenLayers.Control.Button({
+	    autoActivate: true,
+	    displayClass: "olControlWannaLabel",
+	    trigger: wannaLayerVisibility,
+	    title: 'Toggle labels'
+	});
+	wannaControlPanel = new OpenLayers.Control.Panel();
+	wannaControlPanel.addControls(wannaToggleLayerbutton);
+	wannaMap.addControl(wannaControlPanel);
+	wannaLayerVisibility(); // Make sure to hide labels by default
+	
+	//--- Common Popup management				
+	function onFeatureSelect(event) {
+	  var feature = event.feature;
+	  // Since KML is user-generated, do naive protection against Javascript.
+	  var content = "<h2>"+feature.attributes.name + "</h2>" + feature.attributes.description;
+	  if (content.search("<script") != -1) {
+	     content = "Content contained Javascript! Escaped content below.<br />" + content.replace(/</g, "&lt;");
+	  }
+	  popup = new OpenLayers.Popup.FramedCloud(
+	                            "wannaSpotBubble", 
+                                    feature.geometry.getBounds().getCenterLonLat(),
+                                    new OpenLayers.Size(150,100),
+                                    content,
+                                    null,
+				    true
+				    );
+	  feature.popup = popup;
+                 wannaMap.addPopup(popup);
+	}
+	function onFeatureUnselect(event) {
+	  var feature = event.feature;
+	  if(feature.popup) {
+	    wannaMap.removePopup(feature.popup);
+                   feature.popup.destroy();
+                   delete feature.popup;
+	  }
+	}
+
+	//--- Add layers
+	wannaMap.addLayers([ gmap_hy, gmap_st, gmap_ph, gmap_sa,
+	               mapnik, mapquest_osm, esri,
+		       ovi_street, ovi_satellite,
+	                wannaVectorLayer,
+		      ]);
+	wannaMap.zoomToExtent(new OpenLayers.Bounds(-73.812053203583000,-4.000000000000000,-7.000000000000000,41.250967514162000).transform(WGS84, wannaMap.getProjectionObject()));
+	
+	if (wannaMap.getZoom() > 16) {
+	  wannaMap.zoomTo(14);
+	}
+	
+} // End wanna_map_init
+
+//--- Toggle labels
+function wannaLayerVisibility() {
+  if (wannaShowLabels) {
+    wannaVectorLayer.styleMap.styles.default.defaultStyle.label = '';
+    wannaVectorLayer.redraw();
+    wannaShowLabels = false;
+  }
+  else {
+    wannaVectorLayer.styleMap.styles.default.defaultStyle.label = "${name}";
+    wannaVectorLayer.redraw();
+    wannaShowLabels = true;
+  }
+}
+
+// end hiding contents from old browsers &amp; W3C validator -->
+</script><!-- Google Analytics --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5576775-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent --><script type="text/javascript">
+      window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"/help/index.html?wdaction=lib.WDPageHelp.cookies","theme":"dark-top"};
+    </script><script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script><!-- End Cookie Consent plugin -->
+</head>
+<body onload="wanna_map_init();">
+<a name="up" id="up"></a>
+
+<div id="wanna-main-wrapper"><div id="wanna-main-wrapper-internal">
+<div id="wanna-header-wrapper">
+  <div id="wanna-banner-leaderboard"></div>
+  <div id="wanna-top-menu">
+    <div id="wanna-top-nav">
+    <ul>
+<li class="wanna-home-icon wanna-top-nav-menu-line"><a href="/index.html">Home</a></li>
+      <li class="wanna-top-nav-menu-line"><a href="/store/index.html">Store</a></li>
+      <li class="wanna-top-nav-menu-line"><a href="/professionals/index.html">Professionals</a></li>
+      
+      <li class="wanna-top-nav-menu-line"><a href="/help/faq/index.html">Help</a></li>
+      <li class="wanna-top-nav-menu-line">
+        <div id="wanna-language-selector">
+	<a href="#" onmouseover="javascript:WannaLayerOn('wanna-language-selector-selected-available');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-language-selector-selected-available\')',1000)" class="wanna-language-selector-selected"><img src="/common/wfb/flags/uk-flag.gif" width="20" height="12" alt=""> English<span class="wanna-language-selector-arrow"> </span></a>
+	<div id="wanna-language-selector-selected-available" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-language-selector-selected-available\')',1000)">
+	  <ul>
+<li><a href="http://es.wannasurf.com/spot/North_America/USA/North_East/Long_Island_NY/"><img src="/common/wfb/flags/sp-flag.gif" width="20" height="12" alt=""> Español</a></li>
+  <li><a href="http://fr.wannasurf.com/spot/North_America/USA/North_East/Long_Island_NY/"><img src="/common/wfb/flags/fr-flag.gif" width="20" height="12" alt=""> Français</a></li>
+  <li><a href="http://pt.wannasurf.com/spot/North_America/USA/North_East/Long_Island_NY/"><img src="/common/wfb/flags/po-flag.gif" width="20" height="12" alt=""> Português</a></li>
+
+	      <li><a href="/help/contribute/index.html?wdaction=lib.WDPageHelp.contrib_i18n" style="padding-left:23px;">Other language?</a></li>
+
+	    
+	  </ul>
+</div>
+      </div> <!-- END wanna-language-selector -->
+      </li>
+    </ul>
+</div> <!-- END wanna-top-nav -->
+
+    <!-- Community menu -->
+        <div id="wanna-community-layer-header">
+      <div class="wanna-community-header-contents">
+      <div class="wanna-community-header-text1"><p><a class="wanna-community-layer-toggle" onmouseover="javascript:WannaLayerOn('wanna-community-panel-layer');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-community-panel-layer\')',1000)">Community<span class="wanna-community-layer-arrow"> </span></a></p></div>
+      <div class="wanna-community-header-text2"><p style="text-align:right;"><a class="wanna-community-layer-toggle" onmouseover="javascript:WannaLayerOn('wanna-community-panel-layer');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-community-panel-layer\')',1000)">Login<span class="wanna-community-layer-arrow"> </span></a></p></div>
+    </div>
+        <div id="wanna-community-panel-layer" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-community-panel-layer\')',1000)">
+      <div class="wanna-community-panel-layer-content">
+        <div id="wanna-community-login">
+<!-- Start Template: ATLAS_login -->		<div class="moduletable">
+			<form name="wanna-login-form" action="http://www.wannasurf.com/community/index.php?option=com_comprofiler&amp;task=login" method="post">
+<input type="text" name="username" class="wanna-login-form wanna-login-field" alt="Username" value="Username" onfocus="if (this.value=='Username') this.value=''" onblur="if(this.value=='') { this.value='Username'; return false; }"><input type="password" class="wanna-login-form wanna-password-field" name="passwd" alt="Password" value="pasw" onfocus="if (this.value=='pasw') this.value=''" onblur="if(this.value=='') { this.value='pasw'; return false; }"><input type="hidden" name="op2" value="login"><input type="hidden" name="lang" value="english"><input type="hidden" name="force_session" value="1"><input type="hidden" name="return" value="http://www.wannasurf.com/spot/North_America/USA/North_East/Long_Island_NY/"><input type="hidden" name="message" value="0"><input type="hidden" name="remember" value="yes"><input type="hidden" name="jd99a1f8af314a27b730bfbd5bddff2c9" value="1"><input type="submit" name="Submit" class="wanna-login-form wanna-submit-button" value="Login"><br>
+</form>
+<p><a href="http://www.wannasurf.com/community/index.php?option=com_comprofiler&amp;task=lostPassword" class="wanna-more-link3">Lost password?</a> New user? <a href="http://www.wannasurf.com/community/index.php?option=com_comprofiler&amp;task=registers" class="wanna-more-link3">Register</a></p>		</div>
+		</div>
+        <div id="wanna-community-user-menu">
+<h3 class="wanna-sub-title">My Surf</h3>
+<!-- Start Template: ATLAS_user_menu --><ul id="mainlevel-nav-wanna-community-user-menu-list">
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Profile</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Travel Map</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Surfed Spots</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Sessions</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Trips</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Pictures</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Messages</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">My Blog</span></li>
+<li><span class="mainlevel-nav-wanna-community-user-menu-list">Add new blog</span></li>
+</ul>
+</div>
+        <div id="wanna-community-common-menu">
+<h3 class="wanna-sub-title">Wannasurfers</h3>
+<!-- Start Template: ATLAS_tab --><ul id="mainlevel-nav-wanna-community-common-menu-list">
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_frontpage&amp;Itemid=1" class="mainlevel-nav-wanna-community-common-menu-list">Community</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_joomlaboard&amp;Itemid=5" class="mainlevel-nav-wanna-community-common-menu-list">Forums</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_mamblog&amp;Itemid=44" class="mainlevel-nav-wanna-community-common-menu-list">Blogs</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_gallery2&amp;Itemid=66" class="mainlevel-nav-wanna-community-common-menu-list">Photos</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_comprofiler&amp;task=usersList&amp;Itemid=3" class="mainlevel-nav-wanna-community-common-menu-list">Surfers List</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showLogbook&amp;lbk_view=table&amp;geopath=/spot%20" class="mainlevel-nav-wanna-community-common-menu-list">Surf Sessions</a></li>
+<li><a href="http://www.wannasurf.com/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showTrips&amp;lbk_view=table&amp;geopath=/spot%20" class="mainlevel-nav-wanna-community-common-menu-list">Surf Trips</a></li>
+</ul>
+</div>
+      </div>
+    </div>
+
+    <p class="wanna-community-header-logged-in-info"></p>
+
+
+  </div>
+
+
+  </div> <!-- END wanna-top-menu -->
+
+  <!-- Header menu, image &amp; slogan -->
+  <div id="wanna-header-site-name"><a href="/index.html"><img src="/template/wannaskin2/images/wanna-empty.gif" width="228" height="42" alt=""></a></div>
+
+  <!-- Static continent menu -->
+  <div id="wanna-tabbar">
+<!-- Template: doVisitMainMenu.html -->
+
+<ul id="wanna-main-menu-static" class="wanna-main-menu-static">
+<li class="wanna-main-menu-static-tabbar-first "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-africa');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-africa\')',1000)">Africa<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-asia');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-asia\')',1000)">Asia<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-australia');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-australia\')',1000)">Australia &amp; Pacific<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-central_america');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-central_america\')',1000)">Central America<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-europe');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-europe\')',1000)">Europe<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-middle_east');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-middle_east\')',1000)">Middle East<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-middle wanna-main-menu-static-tabbar-selected"><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-north_america');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-north_america\')',1000)">North America<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+<li class="wanna-main-menu-static-tabbar-last "><h1><a href="#" onmouseover="javascript:WannaLayerOn('wanna-main-menu-static-south_america');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-main-menu-static-south_america\')',1000)">South America<span class="wanna-main-menu-static-arrow"> </span></a></h1></li>
+
+</ul>
+<div style="clear: both;"><!-- Important! --></div>
+<div id="wanna-main-menu-statics">
+  <div id="wanna-main-menu-static-africa" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-africa\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Africa/index.html">Africa</a> <span class="wanna-title-counter">(43 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Algeria" class="wanna-main-menu-static-tabbar-submenu-active">Algeria</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Angola" class="wanna-main-menu-static-tabbar-submenu-active">Angola</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Benin" class="wanna-main-menu-static-tabbar-submenu-active">Benin</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Burkina_Faso" class="wanna-main-menu-static-tabbar-submenu-inactive">Burkina Faso</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Burundi" class="wanna-main-menu-static-tabbar-submenu-inactive">Burundi</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Cameroon" class="wanna-main-menu-static-tabbar-submenu-active">Cameroon</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Cape_Verde" class="wanna-main-menu-static-tabbar-submenu-active">Cape Verde</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Comoros" class="wanna-main-menu-static-tabbar-submenu-inactive">Comoros</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Congo" class="wanna-main-menu-static-tabbar-submenu-active">Congo</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Democratic_Republic_of_Congo" class="wanna-main-menu-static-tabbar-submenu-inactive">Democratic Republic of the Congo</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Djibouti" class="wanna-main-menu-static-tabbar-submenu-inactive">Djibouti</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Egypt" class="wanna-main-menu-static-tabbar-submenu-active">Egypt</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Equatorial_Guinea" class="wanna-main-menu-static-tabbar-submenu-inactive">Equatorial Guinea</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Gabon" class="wanna-main-menu-static-tabbar-submenu-active">Gabon</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Gambia" class="wanna-main-menu-static-tabbar-submenu-active">Gambia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Ghana" class="wanna-main-menu-static-tabbar-submenu-active">Ghana</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Guinea" class="wanna-main-menu-static-tabbar-submenu-inactive">Guinea</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Guinea-Bissau" class="wanna-main-menu-static-tabbar-submenu-inactive">Guinea-Bissau</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Ivory_Coast" class="wanna-main-menu-static-tabbar-submenu-active">Ivory Coast</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Kenya" class="wanna-main-menu-static-tabbar-submenu-active">Kenya</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Liberia" class="wanna-main-menu-static-tabbar-submenu-active">Liberia</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Libya" class="wanna-main-menu-static-tabbar-submenu-active">Libya</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Madagascar" class="wanna-main-menu-static-tabbar-submenu-active">Madagascar</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Mauritania" class="wanna-main-menu-static-tabbar-submenu-active">Mauritania</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Mauritius" class="wanna-main-menu-static-tabbar-submenu-active">Mauritius</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Mayotte" class="wanna-main-menu-static-tabbar-submenu-inactive">Mayotte</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Morocco" class="wanna-main-menu-static-tabbar-submenu-active">Morocco</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Mozambique" class="wanna-main-menu-static-tabbar-submenu-active">Mozambique</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Namibia" class="wanna-main-menu-static-tabbar-submenu-active">Namibia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Nigeria" class="wanna-main-menu-static-tabbar-submenu-active">Nigeria</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Reunion" class="wanna-main-menu-static-tabbar-submenu-active">Reunion Island</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Rwanda" class="wanna-main-menu-static-tabbar-submenu-inactive">Rwanda</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Sao_Tome" class="wanna-main-menu-static-tabbar-submenu-active">São Tomé</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Senegal" class="wanna-main-menu-static-tabbar-submenu-active">Senegal</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Seychelles" class="wanna-main-menu-static-tabbar-submenu-active">Seychelles</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Sierra_Leone" class="wanna-main-menu-static-tabbar-submenu-active">Sierra leone</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Somalia" class="wanna-main-menu-static-tabbar-submenu-active">Somalia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/South_Africa" class="wanna-main-menu-static-tabbar-submenu-active">South Africa</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Tanzania" class="wanna-main-menu-static-tabbar-submenu-active">Tanzania</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Togo" class="wanna-main-menu-static-tabbar-submenu-active">Togo</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Tunisia" class="wanna-main-menu-static-tabbar-submenu-active">Tunisia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Western_Sahara" class="wanna-main-menu-static-tabbar-submenu-active">Western Sahara</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Africa/Zimbabwe" class="wanna-main-menu-static-tabbar-submenu-active">Zimbabwe</a></p>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-asia" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-asia\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Asia/index.html">Asia</a> <span class="wanna-title-counter">(25 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Azerbaijan" class="wanna-main-menu-static-tabbar-submenu-inactive">Azerbaijan</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Bangladesh" class="wanna-main-menu-static-tabbar-submenu-active">Bangladesh</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Bhutan" class="wanna-main-menu-static-tabbar-submenu-inactive">Bhutan</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/British_Indian_Ocean" class="wanna-main-menu-static-tabbar-submenu-inactive">British Indian Ocean Territory</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Brunei" class="wanna-main-menu-static-tabbar-submenu-active">Brunei</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Burma" class="wanna-main-menu-static-tabbar-submenu-active">Burma</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Cambodia" class="wanna-main-menu-static-tabbar-submenu-active">Cambodia</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/China" class="wanna-main-menu-static-tabbar-submenu-active">China</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/East_Timor" class="wanna-main-menu-static-tabbar-submenu-active">East Timor</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Hong_Kong" class="wanna-main-menu-static-tabbar-submenu-active">Hong-Kong</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/India" class="wanna-main-menu-static-tabbar-submenu-active">India</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Indonesia" class="wanna-main-menu-static-tabbar-submenu-active">Indonesia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Japan" class="wanna-main-menu-static-tabbar-submenu-active">Japan</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Kazakhstan" class="wanna-main-menu-static-tabbar-submenu-active">Kazakhstan</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Malaysia" class="wanna-main-menu-static-tabbar-submenu-active">Malaysia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Maldives" class="wanna-main-menu-static-tabbar-submenu-active">Maldives</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/North_Korea" class="wanna-main-menu-static-tabbar-submenu-inactive">North Korea</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Philippines" class="wanna-main-menu-static-tabbar-submenu-active">Philipines</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Russia" class="wanna-main-menu-static-tabbar-submenu-active">Russia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Singapore" class="wanna-main-menu-static-tabbar-submenu-inactive">Singapore</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/South_Korea" class="wanna-main-menu-static-tabbar-submenu-active">South Korea</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Sri_Lanka" class="wanna-main-menu-static-tabbar-submenu-active">Sri Lanka</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Taiwan" class="wanna-main-menu-static-tabbar-submenu-active">Taiwan</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Thailand" class="wanna-main-menu-static-tabbar-submenu-active">Thailand</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Asia/Vietnam" class="wanna-main-menu-static-tabbar-submenu-active">Vietnam</a></p>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-australia" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-australia\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Australia_Pacific/index.html">Australia &amp; Pacific</a> <span class="wanna-title-counter">(26 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Samoa_American" class="wanna-main-menu-static-tabbar-submenu-active">American Samoa</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Australia" class="wanna-main-menu-static-tabbar-submenu-active">Australia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Christmas" class="wanna-main-menu-static-tabbar-submenu-active">Christmas Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Cook" class="wanna-main-menu-static-tabbar-submenu-active">Cook Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Easter" class="wanna-main-menu-static-tabbar-submenu-active">Easter Island</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Fiji" class="wanna-main-menu-static-tabbar-submenu-active">Fiji</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Kiribati" class="wanna-main-menu-static-tabbar-submenu-active">Kiribati</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Marshall_Islands" class="wanna-main-menu-static-tabbar-submenu-active">Marshall Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Micronesia" class="wanna-main-menu-static-tabbar-submenu-active">Micronesia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Nauru" class="wanna-main-menu-static-tabbar-submenu-active">Nauru</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/New_Caledonia" class="wanna-main-menu-static-tabbar-submenu-active">New Caledonia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/New_Zealand" class="wanna-main-menu-static-tabbar-submenu-active">New Zealand</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Niue" class="wanna-main-menu-static-tabbar-submenu-inactive">Niue Island</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Mariana_Islands" class="wanna-main-menu-static-tabbar-submenu-active">Northen Mariana Island</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Papua_New_Guinea" class="wanna-main-menu-static-tabbar-submenu-active">Papua New Guinea</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Pictairn_Islands" class="wanna-main-menu-static-tabbar-submenu-inactive">Pictairn Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/French_Polynesia" class="wanna-main-menu-static-tabbar-submenu-active">Polynesia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Palau" class="wanna-main-menu-static-tabbar-submenu-active">Republic of Palau</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Robinson_Crusoe" class="wanna-main-menu-static-tabbar-submenu-active">Robinson Crusoe Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Solomon" class="wanna-main-menu-static-tabbar-submenu-active">Solomon Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Tokelau" class="wanna-main-menu-static-tabbar-submenu-active">Tokelau</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Tonga" class="wanna-main-menu-static-tabbar-submenu-active">Tonga</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Tuvalu" class="wanna-main-menu-static-tabbar-submenu-inactive">Tuvalu</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Vanuatu" class="wanna-main-menu-static-tabbar-submenu-active">Vanuatu</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Wallis_Futuna" class="wanna-main-menu-static-tabbar-submenu-inactive">Wallis and Futuna</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Australia_Pacific/Samoa_Western" class="wanna-main-menu-static-tabbar-submenu-active">Western Samoa</a></p>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-central_america" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-central_america\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Central_America/index.html">Central America</a> <span class="wanna-title-counter">(41 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Anguilla" class="wanna-main-menu-static-tabbar-submenu-active">Anguilla</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Antigua" class="wanna-main-menu-static-tabbar-submenu-inactive">Antigua and Barbuda</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Aruba" class="wanna-main-menu-static-tabbar-submenu-active">Aruba</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Bahamas" class="wanna-main-menu-static-tabbar-submenu-active">Bahamas</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Barbados" class="wanna-main-menu-static-tabbar-submenu-active">Barbados</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Belize" class="wanna-main-menu-static-tabbar-submenu-active">Belize</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Bermuda" class="wanna-main-menu-static-tabbar-submenu-active">Bermuda</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Bonaire" class="wanna-main-menu-static-tabbar-submenu-active">Bonaire</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/British_Virgin" class="wanna-main-menu-static-tabbar-submenu-active">British Virgin Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Cayman" class="wanna-main-menu-static-tabbar-submenu-active">Cayman Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Clipperton_Island" class="wanna-main-menu-static-tabbar-submenu-inactive">Clipperton Island</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Costa_Rica" class="wanna-main-menu-static-tabbar-submenu-active">Costa rica</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Cuba" class="wanna-main-menu-static-tabbar-submenu-active">Cuba</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Curacao" class="wanna-main-menu-static-tabbar-submenu-active">Curaçao</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Dominica" class="wanna-main-menu-static-tabbar-submenu-active">Dominica</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Dominican_Republic" class="wanna-main-menu-static-tabbar-submenu-active">Dominican Republic</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/El_Salvador" class="wanna-main-menu-static-tabbar-submenu-active">El Salvador</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Grenada" class="wanna-main-menu-static-tabbar-submenu-active">Grenada</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Guadeloupe" class="wanna-main-menu-static-tabbar-submenu-active">Guadeloupe</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Guatemala" class="wanna-main-menu-static-tabbar-submenu-active">Guatemala</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Haiti" class="wanna-main-menu-static-tabbar-submenu-active">Haiti and Navassa</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Honduras" class="wanna-main-menu-static-tabbar-submenu-active">Honduras</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Jamaica" class="wanna-main-menu-static-tabbar-submenu-active">Jamaica</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Martinique" class="wanna-main-menu-static-tabbar-submenu-active">Martinique</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Mexico" class="wanna-main-menu-static-tabbar-submenu-active">Mexico</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Montserrat" class="wanna-main-menu-static-tabbar-submenu-active">Montserrat</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Nicaragua" class="wanna-main-menu-static-tabbar-submenu-active">Nicaragua</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Panama" class="wanna-main-menu-static-tabbar-submenu-active">Panama</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Puerto_Rico" class="wanna-main-menu-static-tabbar-submenu-active">Puerto Rico</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Saba" class="wanna-main-menu-static-tabbar-submenu-active">Saba</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Andres_Providencia" class="wanna-main-menu-static-tabbar-submenu-inactive">Saint Andrés and Providencia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Barthelemy" class="wanna-main-menu-static-tabbar-submenu-active">Saint Barthelemy</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Eustatius" class="wanna-main-menu-static-tabbar-submenu-inactive">Saint Eustatius</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Kitts" class="wanna-main-menu-static-tabbar-submenu-active">Saint Kitts and Nevis Island</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Martin" class="wanna-main-menu-static-tabbar-submenu-active">Saint Martin</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Vincent_Grenadines" class="wanna-main-menu-static-tabbar-submenu-active">Saint Vincent and the Grenadines</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/St_Lucia" class="wanna-main-menu-static-tabbar-submenu-active">Sainte Lucia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Tobago" class="wanna-main-menu-static-tabbar-submenu-active">Tobago</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Trinidad" class="wanna-main-menu-static-tabbar-submenu-active">Trinidad</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Turks___Caicos" class="wanna-main-menu-static-tabbar-submenu-active">Turks and Caicos</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Central_America/Virgin_Islands" class="wanna-main-menu-static-tabbar-submenu-active">US Virgin Islands</a></p>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-europe" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-europe\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Europe/index.html">Europe</a> <span class="wanna-title-counter">(35 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Albania" class="wanna-main-menu-static-tabbar-submenu-active">Albania</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Austria" class="wanna-main-menu-static-tabbar-submenu-active">Austria</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Azores" class="wanna-main-menu-static-tabbar-submenu-active">Azores</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Belgium" class="wanna-main-menu-static-tabbar-submenu-active">Belgium</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Bosnia-Herzegovina" class="wanna-main-menu-static-tabbar-submenu-inactive">Bosnia-Herzegovina</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Bulgaria" class="wanna-main-menu-static-tabbar-submenu-active">Bulgaria</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Canary" class="wanna-main-menu-static-tabbar-submenu-active">Canary Islands</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Croatia" class="wanna-main-menu-static-tabbar-submenu-active">Croatia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Cyprus" class="wanna-main-menu-static-tabbar-submenu-active">Cyprus</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Denmark" class="wanna-main-menu-static-tabbar-submenu-active">Denmark</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Estonia" class="wanna-main-menu-static-tabbar-submenu-active">Estonia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Faroe" class="wanna-main-menu-static-tabbar-submenu-active">Faroe Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Finland" class="wanna-main-menu-static-tabbar-submenu-active">Finland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/France" class="wanna-main-menu-static-tabbar-submenu-active">France</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Germany" class="wanna-main-menu-static-tabbar-submenu-active">Germany</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Greece" class="wanna-main-menu-static-tabbar-submenu-active">Greece</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Netherlands" class="wanna-main-menu-static-tabbar-submenu-active">Holland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Iceland" class="wanna-main-menu-static-tabbar-submenu-active">Iceland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Ireland" class="wanna-main-menu-static-tabbar-submenu-active">Ireland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Italy" class="wanna-main-menu-static-tabbar-submenu-active">Italy</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Latvia" class="wanna-main-menu-static-tabbar-submenu-active">Latvia</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Lithuania" class="wanna-main-menu-static-tabbar-submenu-active">Lithuania</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Madeira" class="wanna-main-menu-static-tabbar-submenu-active">Madeira</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Malta" class="wanna-main-menu-static-tabbar-submenu-active">Malta</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Montenegro" class="wanna-main-menu-static-tabbar-submenu-inactive">Montenegro</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Norway" class="wanna-main-menu-static-tabbar-submenu-active">Norway</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Poland" class="wanna-main-menu-static-tabbar-submenu-active">Poland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Portugal" class="wanna-main-menu-static-tabbar-submenu-active">Portugal</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Serbia" class="wanna-main-menu-static-tabbar-submenu-inactive">Serbia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Slovenia" class="wanna-main-menu-static-tabbar-submenu-active">Slovenia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Spain" class="wanna-main-menu-static-tabbar-submenu-active">Spain</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Sweden" class="wanna-main-menu-static-tabbar-submenu-active">Sweden</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Switzerland" class="wanna-main-menu-static-tabbar-submenu-active">Switzerland</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/UK" class="wanna-main-menu-static-tabbar-submenu-active">UK</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Europe/Ukraine" class="wanna-main-menu-static-tabbar-submenu-active">Ukraine</a></p>
+</td>
+<td>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-middle_east" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-middle_east\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/Middle_East/index.html">Middle East</a> <span class="wanna-title-counter">(14 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Bahrain" class="wanna-main-menu-static-tabbar-submenu-inactive">Bahrain</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Gaza_Strip" class="wanna-main-menu-static-tabbar-submenu-inactive">Gaza Strip</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Iran" class="wanna-main-menu-static-tabbar-submenu-active">Iran</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Israel" class="wanna-main-menu-static-tabbar-submenu-active">Israel</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Jordan" class="wanna-main-menu-static-tabbar-submenu-inactive">Jordan - Aqaba</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Kuwait" class="wanna-main-menu-static-tabbar-submenu-active">Kuwait</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Lebanon" class="wanna-main-menu-static-tabbar-submenu-active">Lebanon</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Oman" class="wanna-main-menu-static-tabbar-submenu-active">Oman</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Qatar" class="wanna-main-menu-static-tabbar-submenu-active">Qatar</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Saudi_Arabia" class="wanna-main-menu-static-tabbar-submenu-inactive">Saudi_Arabia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Syria" class="wanna-main-menu-static-tabbar-submenu-inactive">Syria</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Turkey" class="wanna-main-menu-static-tabbar-submenu-active">Turkey</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/UAE" class="wanna-main-menu-static-tabbar-submenu-active">United Arabs Emirates</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/Middle_East/Yemen" class="wanna-main-menu-static-tabbar-submenu-active">Yemen</a></p>
+</td>
+<td>
+</td>
+</tr></table>
+</div>
+<div id="wanna-main-menu-static-north_america" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-north_america\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/North_America/index.html">North America</a> <span class="wanna-title-counter">(2 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr><td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/North_America/Canada" class="wanna-main-menu-static-tabbar-submenu-active">Canada</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/North_America/USA" class="wanna-main-menu-static-tabbar-submenu-active">United States of America</a></p>
+</td></tr></table>
+</div>
+<div id="wanna-main-menu-static-south_america" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-main-menu-static-south_america\')',1000)">
+    <h2 class="wanna-title-continent wanna-title-continent-underline">
+<a href="/spot/South_America/index.html">South America</a> <span class="wanna-title-counter">(14 countries)</span>
+</h2>
+    <table class="wanna-main-menu-static-country-table"><tr>
+<td>    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Argentina" class="wanna-main-menu-static-tabbar-submenu-active">Argentina</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Brazil" class="wanna-main-menu-static-tabbar-submenu-active">Brazil</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Chile" class="wanna-main-menu-static-tabbar-submenu-active">Chile</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Colombia" class="wanna-main-menu-static-tabbar-submenu-active">Colombia</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Ecuador" class="wanna-main-menu-static-tabbar-submenu-active">Ecuador</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Falkland_Islands" class="wanna-main-menu-static-tabbar-submenu-inactive">Falkland Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/French_Guiana" class="wanna-main-menu-static-tabbar-submenu-active">French Guiana</a></p>
+</td>
+<td>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Guyana" class="wanna-main-menu-static-tabbar-submenu-inactive">Guyana</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Paraguay" class="wanna-main-menu-static-tabbar-submenu-inactive">Paraguay</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Peru" class="wanna-main-menu-static-tabbar-submenu-active">Peru</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/South_Georgia" class="wanna-main-menu-static-tabbar-submenu-inactive">South Georgia and Sandwich Islands</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Suriname" class="wanna-main-menu-static-tabbar-submenu-inactive">Suriname</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Uruguay" class="wanna-main-menu-static-tabbar-submenu-active">Uruguay</a></p>
+    <p class="wanna-main-menu-static-country-line"><a href="/spot/South_America/Venezuela" class="wanna-main-menu-static-tabbar-submenu-active">Venezuela</a></p>
+</td>
+<td>
+</td>
+</tr></table>
+</div>
+
+</div>
+<!-- END wanna-main-menu-statics -->
+
+
+
+</div>
+
+  <!-- Site photo &amp; slogan -->
+  <div id="wanna-header-photo">
+    <div class="wanna-photo-caption">
+  <div id="wanna-photographer-about" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-photographer-about\')',1000)">
+    <div class="wanna-photographer-info-text"><p>Teiki Mathieu Baillan surfing a self-made Alaya surfboard in Macaroni, Mentawaï, Indonesia. Photo by C. Naslain, 2009.</p></div>
+  </div>
+  <a href="#" onmouseover="javascript:WannaLayerOn('wanna-photographer-about');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-photographer-about\')',1000)"><img src="/template/wannaskin2/images/wanna-icon2-photo-caption.gif" width="14" height="14" alt=""></a>
+</div>
+      <!-- End photo caption -->
+
+    <div id="wanna-header-slogan">
+      <span class="wanna-slogan-1">Surf spot atlas made by surfers for surfers</span><br><span class="wanna-slogan-2">Enjoy and contribute!</span>
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div id="wanna-search-bar">
+  <table class="wanna-search-bar"><tr>
+<td><span class="wanna-find-spot">Find the best surf spots</span></td>
+    <td>
+       <ul id="wanna-stats-scrollup" class="wanna-stats-scrollup" style="width:130px;">
+<li class="wanna-stats-start-visible">
+<b>164</b> countries</li>
+	<li class="wanna-stats-start-hidden">
+<b>310</b> Zones</li>
+	<li class="wanna-stats-start-hidden">
+<b>9155</b> surf spots</li>
+	<li class="wanna-stats-start-hidden">
+<b>5698</b> GPS waypoints</li>
+	<li class="wanna-stats-start-hidden">
+<b>54016</b> photos</li>
+	<li class="wanna-stats-start-hidden">
+<b>75734</b> members</li>
+<li class="wanna-stats-start-hidden">
+<b>3975</b> sessions</li>
+<li class="wanna-stats-start-hidden">
+<b>1758</b> trips</li>
+
+      </ul>
+</td>
+    <td align="center">
+    <!-- Country selector -->
+    <form name="wanna-continent-form" action="#">
+    <select id="wanna-continent" name="wanna-continent" class="wanna-search-bar-select"><option value="">Select a continent</option>
+<option value="/spot/Africa">Africa</option>
+<option value="/spot/Asia">Asia</option>
+<option value="/spot/Australia_Pacific">Australia &amp; Pacific</option>
+<option value="/spot/Europe">Europe</option>
+<option value="/spot/Central_America">Central America</option>
+<option value="/spot/Middle_East">Middle East</option>
+<option value="/spot/North_America">North America</option>
+<option value="/spot/South_America">South America</option></select><select id="wanna-country" name="wanna-country" class="wanna-search-bar-select"><option value="">Select a country</option></select><input type="submit" onclick="goToCountry();return false;" class="wanna-search-bar-submit" value="Go">
+</form>
+    </td>
+    <td align="right">
+    <!-- Search form -->
+    <div id="wanna-search-form">
+<!-- Start Template: doVisitSearchFormGoogle.html -->
+
+<form name="search_SearchBlock" method="get" action="http://www.google.com/search">
+  <input name="hl" value="en" type="hidden"><input name="domains" value="wannasurf.com" type="hidden"><input name="sitesearch" value="wannasurf.com" type="hidden"><input name="q" maxlength="255" class="wanna-search-bar-select" type="text" id="searchCriteria" onfocus="if (this.value=='Search...') this.value=''" onblur="if(this.value=='') { this.value='Search...'; return false; }" value="Search..."><input type="submit" class="wanna-search-bar-submit" value="Go">
+</form>
+</div>
+    </td>
+  </tr></table>
+</div>
+
+</div>
+<!-- END wanna-header-wrapper -->
+
+<div class="wanna-clear"></div>
+
+
+
+
+
+<div id="wanna-content-wrapper">
+
+  <a name="wanna-content"></a>
+
+  <div id="wanna-content-center">
+    <div id="wanna-breadcrumbs">
+<!-- Template: navigation.html -->
+<a href="/index.html" class="pathway">Home</a> <img src="/community/images/M_images/arrow.png" alt="arrow"><a href="/spot/index.html" class="pathway">Surf spots</a>
+<img src="/community/images/M_images/arrow.png" alt="arrow"><a href="/spot/North_America/index.html" class="pathway">North America</a>
+<img src="/community/images/M_images/arrow.png" alt="arrow"><a href="/spot/North_America/USA/index.html" class="pathway">USA</a>
+<img src="/community/images/M_images/arrow.png" alt="arrow"><a href="/spot/North_America/USA/North_East/index.html" class="pathway">North East</a>
+<img src="/community/images/M_images/arrow.png" alt="arrow"><a href="/spot/North_America/USA/North_East/Long_Island_NY/index.html" class="pathway">Long Island NY</a>
+ <i></i>
+
+</div>
+    <div class="wanna-clear"></div>
+    
+    
+<!-- Template: doVisitZoneHTML.html -->
+
+<div id="wanna-item-2columns-left">
+ <h1 class="wanna-item-title-title">
+<img src="/common/wfb/flags/us-flag.gif" width="22" alt=""> <a href="/spot/North_America/USA/North_East/Long_Island_NY" class="wanna-item-title-title">Long Island NY</a>
+</h1>
+ <h2 class="wanna-item-title-subtitle"><a href="/spot/North_America/USA/North_East" class="wanna-item-title-subtitle">USA, North East</a></h2>
+
+ <div class="wanna-edit-item-right"><p><a href="index.html?wdaction=lib.WDPageZone.editZone" class="wanna-ico-edit wanna-more-link3" title="Edit this page">Edit this page</a></p></div>
+
+<script type="text/javascript">
+jWC(document).ready(function(){
+    jWC('#wanna-country-tab > ul').tabs();
+});
+</script><div id="wanna-country-tab">
+   <ul class="wanna-tabs-nav">
+<li><a href="#wanna-country-tab-about"><span>About</span></a></li>
+      <li><a href="#wanna-country-tab-additional-info"><span>Seasons</span></a></li>
+         <li><a href="#wanna-item-tab-forecast"><span>Forecast</span></a></li>
+
+         <li><a href="#wanna-item-tab-additional-map"><span>Additional map</span></a></li>
+
+   </ul>
+<div class="wanna-tabs-panel">
+
+   <div id="wanna-country-tab-about">
+   <!-- lang="en" -->
+<p style="display:inline">Water Temps can fluctuate pretty rapidly here on Long Island. A few days of North winds can drop temps 5-10 degrees, and they might rise just as quickly. Water temps generally rise 10 degrees a month starting in the 30's in Feb, peaking around 72 in September(best time). Along with a quiver of boards, a quiver of wetsuits is a good idea.</p>
+<!-- lang="es" -->
+<p style="display:none"><i>English (Translate this text in English): Water Temps can fluctuate pretty rapidly here on Long Island. A few days of North winds can drop temps 5-10 degrees, and they might rise just as quickly. Water temps generally rise 10 degrees a month starting in the 30's in Feb, peaking around 72 in September(best time). Along with a quiver of boards, a quiver of wetsuits is a good idea.</i></p>
+<!-- lang="fr" -->
+<p style="display:none"><i>English (Translate this text in English): Water Temps can fluctuate pretty rapidly here on Long Island. A few days of North winds can drop temps 5-10 degrees, and they might rise just as quickly. Water temps generally rise 10 degrees a month starting in the 30's in Feb, peaking around 72 in September(best time). Along with a quiver of boards, a quiver of wetsuits is a good idea.</i></p>
+<!-- lang="pt" -->
+<p style="display:none"><i>English (Translate this text in English): Water Temps can fluctuate pretty rapidly here on Long Island. A few days of North winds can drop temps 5-10 degrees, and they might rise just as quickly. Water temps generally rise 10 degrees a month starting in the 30's in Feb, peaking around 72 in September(best time). Along with a quiver of boards, a quiver of wetsuits is a good idea.</i></p>
+
+   
+<!-- Template: doVisitZoneSpecific.html -->
+
+<p><span class="wanna-item-label">Seasonal swell &amp; wind variations:</span></p>
+<!-- lang="en" -->
+<p style="display:inline">Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</p>
+<!-- lang="es" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+<!-- lang="fr" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+<!-- lang="pt" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+
+
+   </div>
+
+   <div id="wanna-country-tab-additional-info">
+   <!-- Template: doVisitZoneAdditionalDataHTML.html -->
+
+<h4 class="wanna-additional-info-title wanna-hide-from-pdf">More details</h4>
+<div id="wanna-tabspot-measurement-selector" class="wanna-hide-from-pdf">
+<!-- Template: measurement_selector.html -->
+
+<div id="wanna-measurement-selector2">
+<a href="#" onmouseover="javascript:WannaLayerOn('wanna-measurement-selector-selected-available135907166');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-measurement-selector-selected-available135907166\')',1000)" class="wanna-measurement-selector-selected">Convert measurements<span class="wanna-measurement-selector-arrow"></span></a>
+<div style="display: none;" id="wanna-measurement-selector-selected-available135907166" class="wanna-measurement-selector-selected-available" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-measurement-selector-selected-available135907166\')',1000)">
+<ul>
+<li><a href="?&amp;WD_METRIC=metric">Metric (meters/°C)</a></li>
+  <li><a href="?&amp;WD_METRIC=imperial">Imperial (feet/°F)</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="wanna-additional-info-table">
+<table id="wanna-season-table" class="wanna-tablesorter">
+<thead>
+<tr>
+<th rowspan="2"> </th>
+  <th colspan="6"><center>Seasons</center></th>
+</tr>
+<tr>
+<th>Jan/Feb</th>
+  <th>Mar/Apr</th>
+  <th>May/Jun</th>
+  <th>Jul/Aug</th>
+  <th>Sep/Oct</th>
+  <th>Nov/Dec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best Surfing Season</td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_3.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/fullstarsmall_1.gif" alt=""></td>
+</tr>
+<tr>
+<td>Typical Swell Size</td>
+  <td><img src="/template/wannasurf/images/ws_swell_3.gif" alt=""></td>
+  <td><img src="/template/wannasurf/images/ws_swell_2.gif" alt=""></td>
+  <td><img src="/template/wannasurf/images/ws_swell_2.gif" alt=""></td>
+  <td><img src="/template/wannasurf/images/ws_swell_2.gif" alt=""></td>
+  <td><img src="/template/wannasurf/images/ws_swell_3.gif" alt=""></td>
+  <td><img src="/template/wannasurf/images/ws_swell_2.gif" alt=""></td>
+</tr>
+<tr>
+<td>Surf Equipment</td>
+  <td>Survival Kit</td>
+  <td>Fullsuit</td>
+  <td>Fullsuit</td>
+  <td>Springsuit</td>
+  <td>Boardshorts</td>
+  <td>Fullsuit</td>
+</tr>
+<tr>
+<td>Water temp.</td>
+  <td>2°C<span class="wanna-small-text wanna-hide-from-html"><br>36°F</span>
+</td>
+  <td>9°C<span class="wanna-small-text wanna-hide-from-html"><br>48°F</span>
+</td>
+  <td>16°C<span class="wanna-small-text wanna-hide-from-html"><br>61°F</span>
+</td>
+  <td>20°C<span class="wanna-small-text wanna-hide-from-html"><br>68°F</span>
+</td>
+  <td>22°C<span class="wanna-small-text wanna-hide-from-html"><br>72°F</span>
+</td>
+  <td>9°C<span class="wanna-small-text wanna-hide-from-html"><br>48°F</span>
+</td>
+</tr>
+<tr>
+<td>Air temp.</td>
+  <td>2°C<span class="wanna-small-text wanna-hide-from-html"><br>36°F</span>
+</td>
+  <td>10°C<span class="wanna-small-text wanna-hide-from-html"><br>50°F</span>
+</td>
+  <td>26°C<span class="wanna-small-text wanna-hide-from-html"><br>79°F</span>
+</td>
+  <td>29°C<span class="wanna-small-text wanna-hide-from-html"><br>84°F</span>
+</td>
+  <td>26°C<span class="wanna-small-text wanna-hide-from-html"><br>79°F</span>
+</td>
+  <td>4°C<span class="wanna-small-text wanna-hide-from-html"><br>39°F</span>
+</td>
+</tr>
+<tr>
+<td>Climate</td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+  <td><img src="/template/wannaskin2/images/wanna-empty-1x1.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h4 class="wanna-additional-info-title wanna-hide-from-pdf">Seasonal swell &amp; wind variations</h4>
+<!-- lang="en" -->
+<p style="display:inline">Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</p>
+<!-- lang="es" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+<!-- lang="fr" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+<!-- lang="pt" -->
+<p style="display:none"><i>English (Translate this text in English): Any storm that can produce S,SSE,SE,ESE swell will generate waves somewhere on the Island. Generally after a front moves through the wind will switch from northerly offshores around to westerly sideshores which chop it up.</i></p>
+
+
+<p class="wanna-additional-info-add wanna-hide-from-pdf">Want to correct or complete those additional data? <a href="index.html?wdaction=lib.WDPageZone.editZone" class="wanna_ico-edit wanna-more-link3">Edit this page</a></p>
+
+
+
+
+
+
+
+
+   </div>
+
+      <div id="wanna-item-tab-forecast">
+   <a class="wanna-ico-forecast" href="index.html?wdaction=lib.WDPageForecast.show">Weather Forecast</a><br><br>
+</div>
+
+      <div id="wanna-item-tab-additional-map">
+   <!--<p><img src="" alt=""></p>-->
+   
+<!-- Template: doVisitMapHTML -->
+
+
+<img src="/spot/North_America/USA/North_East/Long_Island_NY/map/map_-surf-spots-NY.gif" alt=""><p></p>
+
+
+
+
+
+
+
+
+   </div>
+
+
+   </div>
+</div>
+
+ <div id="wanna-bbox-map-item">
+<p class="wanna-ico-control">This is an interactive map! Use controls to pan and zoom this map.</p>
+<div id="mapBBOX" style="width:417px; height:370px;"></div>
+</div>
+
+ <div class="wanna-like-button">
+  <div class="wanna-twitter-like-button">
+<!-- Template: twitter_like.html -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?lang=en&amp;url=http%3A%2F%2Fwww.wannasurf.com%2F%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY&amp;count=horizontal" style="width:110px; height:20px;">
+</iframe>
+</div>
+  <div class="wanna-facebook-like-button">
+<!-- Template: facebook_like.html -->
+<iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&amp;href=http%3A%2F%2Fwww.wannasurf.com%2F%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY&amp;layout=button_count&amp;show_faces=false&amp;width=190&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:190px; height:20px;" allowtransparency="true"></iframe>
+</div>
+ </div>
+ 
+</div>
+
+<div id="wanna-item-2columns-right">
+
+ <div id="wanna-item-minimap"><a href="index.html?wdaction=lib.WDPageZone.showSatMap"><img src="/maps/map_from_gps.php?geopath=/spot/North_America/USA/North_East/Long_Island_NY&amp;width=130" border="0" alt=""></a></div>
+ <div class="wanna-clear"></div>
+
+ <div id="wanna-item-actions-no-rating"></div>
+ <div id="wanna-item-actions">
+ <ul>
+<li class="wanna-item-actions-no-rating"><span class="wanna-ico-comment"><a href="comment/index.html?wdaction=lib.WDPageComment.show">Comments (64)</a></span></li>
+  <li><span class="wanna-ico-log"><a href="/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showLogbook&amp;lbk_view=table&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY">sessions</a> (16)</span></li>
+  <li><span class="wanna-ico-trip"><a href="/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showTrips&amp;lbk_view=table&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY">trips</a> (0)</span></li>
+  <li>
+<span class="wanna-ico-photo"><a href="photo/index.html">Photos</a></span> (255)</li>
+  <li>
+<span class="wanna-ico-video"><a href="video/index.html">Videos</a></span> (1)</li>
+  <li class="wanna-ico-expand">
+<span class="wanna-ico-pdf"><a href="#" onmouseover="javascript:WannaLayerOn('wanna-item-pdf-layer');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-item-pdf-layer\')',1000)">PDF guide</a></span>
+    <div id="wanna-item-pdf-layer" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-item-pdf-layer\')',1000)">
+    <p class="wanna-item-actions-non-upper">Wannasurf.com is not responsible for the accuracy of the information contained in this guide. You use this guide at your own risk.</p>
+    <p>Choose your format: <a href="/community/index.php?option=com_login&amp;Itemid=9999" class="wanna-more-link3">please login first</a>
+</p>
+    </div>
+</li>
+
+  <!-- {GPS_EXPORT} -->
+  <li class="wanna-ico-expand">
+<span class="wanna-ico-kml"><a href="#" onmouseover="javascript:WannaLayerOn('wanna-item-kml-layer');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-item-kml-layer\')',1000)">KML &amp; GPS files (<b>29</b>)</a></span>
+  <div id="wanna-item-kml-layer" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-item-kml-layer\')',1000)">
+  <p class="wanna-item-actions-non-upper">You are free to use Wannasurf.com KML/GPS data files ONLY for your personal use. See <a href="/help/index.html?wdaction=lib.WDPageHelp.termsofuse">Terms of use</a> for more information.</p>
+  <p><span class="wanna-ico-kml"><b>KML file</b>: <a href="/community/index.php?option=com_login&amp;Itemid=9999" class="wanna-more-link3">please login first</a></span>
+</p>
+  </div>
+</li>
+
+  <!-- {SPOT_SATMAP} -->
+  <li class="wanna-ico-expand">
+<span class="wanna-ico-share"><a href="#" onmouseover="javascript:WannaLayerOn('wanna-item-share-layer');overdiv=1;" onmouseout="overdiv=0;setTimeout('WannaLayerOff(\'wanna-item-share-layer\')',1000)">Share</a></span>
+    <div id="wanna-item-share-layer" onmouseover="overdiv=1;" onmouseout="overdiv=0; setTimeout('WannaLayerOff(\'wanna-item-share-layer\')',1000)">
+    <ul class="wanna-syndicate-links">
+<li>
+<span class="wanna-ico-share-facebook"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Digg It" align="middle" height="16" width="16"></span> <a href="http://www.facebook.com/" onclick="window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href)+'&amp;t='+encodeURIComponent(document.title),'sharer','toolbar=0,status=0,width=760,height=450'); return false;"><!-- <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F" target="_blank">-->facebook</a>
+</li>
+  <li>
+<span class="wanna-ico-share-twitter"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Twitter" align="middle" height="16" width="16"></span> <a href="http://twitter.com/" onclick="window.open('http://twitter.com/timeline/home?status='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'twitter','toolbar=0,status=0,width=760,height=450'); return false;">twitter</a>
+</li>
+  <li>
+<span class="wanna-ico-share-delicious"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Delicious" align="middle" height="16" width="16"></span> <a href="http://del.icio.us" onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=700,height=400'); return false;"><!--<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F&amp;title=Long Island NY - Surfing in Long Island NY, United States of America - WannaSurf, surf spots atlas, surfing photos, maps, GPS location" target="_blank">-->del.icio.us</a>
+</li>
+  <li>
+<span class="wanna-ico-share-digg"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Digg It" align="middle" height="16" width="16"></span> <a href="http://www.digg.com/submit?phase=1&amp;url=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F" target="_blank">digg</a>
+</li>
+</ul>
+</div>
+  </li>
+ </ul>
+</div>
+
+ <div id="wanna-item-actions-flm">
+ <ul>
+<li style="border-top: 1px solid #ccc;"><span class="wanna-ico-favourite">Favourite</span></li>
+  <li class="wanna-bottom-right-corner-spot">
+    <div class="wanna-favourite-patchwork"></div>
+    <p>Your favourites and future surf spot lists</p>
+    <div style="text-transform:lowercase;">
+<p><!-- Been there? Wish to go there? --><a class="wanna-icon-blue-arrow" href="index.html?wdaction=lib.WDPageMaps.addspot&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY" style="color: #1898e1;">Add surf spots to your profile</a></p>
+</div>
+ </li>
+ </ul>
+</div>
+</div>
+
+<div class="wanna-clear"></div>
+
+
+<div class="wanna-add-text-to-title wanna-hide-from-pdf"><p>Your favorite surf spot isn't listed ? <a href="index.html?wdaction=lib.WDPageSpot.addSpot" class="wanna-icon-blue-arrow wanna-more-link3">Add a surf spot</a></p></div>
+<h3 class="wanna-item">Surf Spots</h3>
+<div id="wanna-tabzonespot-spot">
+<table id="wanna-table" class="wanna-tablesorter">
+<thead><tr>
+<th width="127">Surf Spots (86)</th>
+   <th><div style="width:32px;">
+<img src="/template/wannaskin2/images/wanna-icon-news-photo.gif" title="Photos" alt=""><img src="/template/wannaskin2/images/wanna-icon-news-video.gif" title="Videos" alt="">
+</div></th>
+   <th><img src="/template/wannaskin2/images/wanna-icon-satellite.gif" width="16" height="16" border="0" title="GPS" alt=""></th>
+   <th>Quality</th>
+   <th>Direction</th>
+   <th>Type</th>
+   <th>Frequ</th>
+   <th>Experience</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/index.html" class="wanna-tabzonespot-item-title"><b>92nd Street</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">9</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/bay_1/index.html" class="wanna-tabzonespot-item-title"><b>Bay 1</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/bay_1/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/bay_1/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/beach_lane/index.html" class="wanna-tabzonespot-item-title"><b>Beach Lane</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/beach_lane/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/beach_lane/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/boogie_beach_2/index.html" class="wanna-tabzonespot-item-title"><b>Boogie Beach 2</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/boogie_beach_2/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/boogie_beach_2/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/BP/index.html" class="wanna-tabzonespot-item-title"><b>BP</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/BP/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/BP/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:86%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/breezy_point/index.html" class="wanna-tabzonespot-item-title"><b>Breezy Point</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/breezy_point/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/breezy_point/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:43%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Beginners wave</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/caumsett_point/index.html" class="wanna-tabzonespot-item-title"><b>Caumsett Point</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/caumsett_point/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/caumsett_point/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/circle_beach/index.html" class="wanna-tabzonespot-item-title"><b>Circle Beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/circle_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/circle_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:43%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/cliffs/index.html" class="wanna-tabzonespot-item-title"><b>Cliffs</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/cliffs/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/cliffs/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/Coastguards/index.html" class="wanna-tabzonespot-item-title"><b>Coastguards</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/Coastguards/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/Coastguards/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/condos/index.html" class="wanna-tabzonespot-item-title"><b>Condos</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/condos/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/condos/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:43%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty/index.html" class="wanna-tabzonespot-item-title"><b>Connecticut Street Jetty</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">3</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/coopers_beach/index.html" class="wanna-tabzonespot-item-title"><b>Cooper's beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/coopers_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">11</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/coopers_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/cupsogue_beach/index.html" class="wanna-tabzonespot-item-title"><b>Cupsogue beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/cupsogue_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/cupsogue_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/democrat_point/index.html" class="wanna-tabzonespot-item-title"><b>Democrat Point (Robert Moses)</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/democrat_point/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/democrat_point/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/ditch_plains/index.html" class="wanna-tabzonespot-item-title"><b>Ditch Plains</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/ditch_plains/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/ditch_plains/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/dunewood/index.html" class="wanna-tabzonespot-item-title"><b>Dunewood</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/dunewood/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/dunewood/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/east_hampton_-_beach_lane/index.html" class="wanna-tabzonespot-item-title"><b>East Hampton - Beach lane</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/east_hampton_-_beach_lane/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/east_hampton_-_beach_lane/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/east_rockaway_inlet_jetty/index.html" class="wanna-tabzonespot-item-title"><b>East Rockaway Inlet Jetty</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/east_rockaway_inlet_jetty/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/east_rockaway_inlet_jetty/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/end_of_the_road/index.html" class="wanna-tabzonespot-item-title"><b>End of the Road</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/end_of_the_road/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/end_of_the_road/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_fairharbor/index.html" class="wanna-tabzonespot-item-title"><b>Fire Island - Fairharbor</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_fairharbor/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">8</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_fairharbor/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_kismit/index.html" class="wanna-tabzonespot-item-title"><b>Fire Island - Kismit</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_kismit/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_kismit/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Beginners wave</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_ocean_beach_jetty_s/index.html" class="wanna-tabzonespot-item-title"><b>Fire Island - Ocean Beach Jetty's</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_ocean_beach_jetty_s/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">6</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_-_ocean_beach_jetty_s/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap></td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_point_of_woods/index.html" class="wanna-tabzonespot-item-title"><b>Fire Island Point of Woods</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_point_of_woods/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/fire_island_point_of_woods/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/flying_point_beach/index.html" class="wanna-tabzonespot-item-title"><b>Flying point beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/flying_point_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/flying_point_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/flys/index.html" class="wanna-tabzonespot-item-title"><b>Flys</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/flys/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/flys/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/gems/index.html" class="wanna-tabzonespot-item-title"><b>Gems</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/gems/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/gems/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/georgica_pond/index.html" class="wanna-tabzonespot-item-title"><b>Georgica pond</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/georgica_pond/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/georgica_pond/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:86%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap></td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo/index.html" class="wanna-tabzonespot-item-title"><b>Gilgo</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">18</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/Grand_Blvd/index.html" class="wanna-tabzonespot-item-title"><b>Grand Blvd</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/Grand_Blvd/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">3</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/Grand_Blvd/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Beginners wave</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/hemlocks/index.html" class="wanna-tabzonespot-item-title"><b>Hemlocks</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/hemlocks/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">11</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/hemlocks/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Pros or kamikaze only...</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/indian_wells/index.html" class="wanna-tabzonespot-item-title"><b>Indian Wells</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/indian_wells/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/indian_wells/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/jetty_4/index.html" class="wanna-tabzonespot-item-title"><b>Jetty 4</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/jetty_4/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/jetty_4/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts/index.html" class="wanna-tabzonespot-item-title"><b>John scotts</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts_jetty/index.html" class="wanna-tabzonespot-item-title"><b>John scotts jetty</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts_jetty/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/john_scotts_jetty/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_beach/index.html" class="wanna-tabzonespot-item-title"><b>Jones Beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_inlet/index.html" class="wanna-tabzonespot-item-title"><b>Jones inlet</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_inlet/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/jones_inlet/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_1.gif" border="0" alt=""></td>
+    <td nowrap>Beginners wave</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/l_road/index.html" class="wanna-tabzonespot-item-title"><b>L Road</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/l_road/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/l_road/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/lashleys_pavilion/index.html" class="wanna-tabzonespot-item-title"><b>Lashleys pavilion</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/lashleys_pavilion/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/lashleys_pavilion/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/laurelton/index.html" class="wanna-tabzonespot-item-title"><b>Laurelton</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/laurelton/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/laurelton/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/leja_beach/index.html" class="wanna-tabzonespot-item-title"><b>Leja Beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/leja_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/leja_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/lido/index.html" class="wanna-tabzonespot-item-title"><b>Lido</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/lido/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/lido/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/lido_west/index.html" class="wanna-tabzonespot-item-title"><b>Lido West</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/lido_west/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">16</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/lido_west/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">1</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/lincoln/index.html" class="wanna-tabzonespot-item-title"><b>Lincoln</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/lincoln/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">15</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/lincoln/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/main_beach/index.html" class="wanna-tabzonespot-item-title"><b>Main Beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/main_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/main_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/malibu/index.html" class="wanna-tabzonespot-item-title"><b>Malibu</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/malibu/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/malibu/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/mecox_bay/index.html" class="wanna-tabzonespot-item-title"><b>Mecox Bay</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/mecox_bay/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">14</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/mecox_bay/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Rivermouth</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/monroe/index.html" class="wanna-tabzonespot-item-title"><b>Monroe</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/monroe/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/monroe/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:43%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/air_force_base/index.html" class="wanna-tabzonespot-item-title"><b>Montauk Point - Air Force Base</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/air_force_base/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/air_force_base/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_alamo/index.html" class="wanna-tabzonespot-item-title"><b>Montauk point - alamo</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_alamo/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_alamo/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_dickies_left/index.html" class="wanna-tabzonespot-item-title"><b>Montauk point - dickies left</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_dickies_left/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/montauk_point_-_dickies_left/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/turtles/index.html" class="wanna-tabzonespot-item-title"><b>Montauk point - Turtles</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/turtles/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">13</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/turtles/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/national/index.html" class="wanna-tabzonespot-item-title"><b>National Blvd.</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/national/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">5</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/national/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/North_Bar/index.html" class="wanna-tabzonespot-item-title"><b>North Bar</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/North_Bar/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/North_Bar/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap></td>
+    <td nowrap></td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_1.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/ocean_road/index.html" class="wanna-tabzonespot-item-title"><b>Ocean Road</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/ocean_road/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/ocean_road/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/off_roads/index.html" class="wanna-tabzonespot-item-title"><b>Off Roads</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/off_roads/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">2</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/off_roads/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/outside_ponquogue/index.html" class="wanna-tabzonespot-item-title"><b>Outside Ponquogue</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/outside_ponquogue/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/outside_ponquogue/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:86%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/pacific/index.html" class="wanna-tabzonespot-item-title"><b>Pacific</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/pacific/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">7</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/pacific/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/pinecones/index.html" class="wanna-tabzonespot-item-title"><b>Pinecones</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/pinecones/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/pinecones/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:100%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/pink_house/index.html" class="wanna-tabzonespot-item-title"><b>Pink House</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/pink_house/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/pink_house/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_1.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/point_o__woods/index.html" class="wanna-tabzonespot-item-title"><b>Point o' Woods</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/point_o__woods/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/point_o__woods/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/ponquogue-_the_bowl/index.html" class="wanna-tabzonespot-item-title"><b>Ponquogue- the bowl</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/ponquogue-_the_bowl/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">14</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/ponquogue-_the_bowl/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/pt_lookout/index.html" class="wanna-tabzonespot-item-title"><b>Pt. Lookout</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/pt_lookout/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/pt_lookout/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/road_k/index.html" class="wanna-tabzonespot-item-title"><b>Road K</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/road_k/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/road_k/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses/index.html" class="wanna-tabzonespot-item-title"><b>Robert Moses</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses_democrat_point/index.html" class="wanna-tabzonespot-item-title"><b>Robert Moses (democrat point)</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses_democrat_point/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">10</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/robert_moses_democrat_point/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Left</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/sag_main/index.html" class="wanna-tabzonespot-item-title"><b>Sagg main</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/sag_main/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/sag_main/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/sahara/index.html" class="wanna-tabzonespot-item-title"><b>Sahara</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/sahara/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/sahara/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/sailors_haven/index.html" class="wanna-tabzonespot-item-title"><b>Sailors haven</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/sailors_haven/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/sailors_haven/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/sewage_pipe/index.html" class="wanna-tabzonespot-item-title"><b>Sewage Pipe</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/sewage_pipe/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/sewage_pipe/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:86%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/smith_point/index.html" class="wanna-tabzonespot-item-title"><b>Smith point</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/smith_point/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">15</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/smith_point/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/Terrace/index.html" class="wanna-tabzonespot-item-title"><b>Terrace</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/Terrace/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/Terrace/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/the_4x4/index.html" class="wanna-tabzonespot-item-title"><b>The 4x4</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/the_4x4/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/the_4x4/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/the_box/index.html" class="wanna-tabzonespot-item-title"><b>The Box</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/the_box/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/the_box/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/the_cut/index.html" class="wanna-tabzonespot-item-title"><b>The Cut</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/the_cut/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/the_cut/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/The_Jetty/index.html" class="wanna-tabzonespot-item-title"><b>The Jetty</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/The_Jetty/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/The_Jetty/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/the_ranch/index.html" class="wanna-tabzonespot-item-title"><b>The Ranch</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/the_ranch/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/the_ranch/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/three_s__not_in_hawaii_/index.html" class="wanna-tabzonespot-item-title"><b>Three's (not in hawaii)</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/three_s__not_in_hawaii_/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/three_s__not_in_hawaii_/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>Point-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay/index.html" class="wanna-tabzonespot-item-title"><b>Tobay</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">7</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Sand-bar</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay_beach/index.html" class="wanna-tabzonespot-item-title"><b>Tobay beach</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay_beach/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">4</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/tobay_beach/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/trailor_park/index.html" class="wanna-tabzonespot-item-title"><b>Trailor Park</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/trailor_park/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">3</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/trailor_park/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Reef-rocky</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/watch_hill/index.html" class="wanna-tabzonespot-item-title"><b>Watch Hill</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/watch_hill/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/watch_hill/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_3.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/west_end/index.html" class="wanna-tabzonespot-item-title"><b>West end</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/west_end/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">3</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/west_end/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right</td>
+    <td nowrap>breakwater/jetty</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/West_Reef/index.html" class="wanna-tabzonespot-item-title"><b>West Reef</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/West_Reef/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">1</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/West_Reef/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"><img src="/template/wannaskin2/images/wanna-icon-check-gps.gif" width="11" height="10" border="0" title="GPS Coordinates" alt=""></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:86%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Pros or kamikaze only...</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/white_sands/index.html" class="wanna-tabzonespot-item-title"><b>White sands</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/white_sands/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/white_sands/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:71%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_4.gif" border="0" alt=""></td>
+    <td nowrap>Experienced surfers</td>
+  </tr>
+<tr>
+<td><a href="/spot/North_America/USA/North_East/Long_Island_NY/Wyborg/index.html" class="wanna-tabzonespot-item-title"><b>Wyborg</b></a></td>
+    <td nowrap align="center">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/Wyborg/photo/index.html" title="Photos" class="wanna-tabzonespot-photovideo">-</a> / <a href="/spot/North_America/USA/North_East/Long_Island_NY/Wyborg/video/index.html" title="Videos" class="wanna-tabzonespot-photovideo">-</a>
+</td>
+    <td nowrap align="center"></td>
+    <td nowrap>
+<div class="wanna-rating-div-xsmall-bar"><div style="width:57%"></div></div>
+</td>
+    <td nowrap>Right and left</td>
+    <td nowrap>Beach-break</td>
+    <td nowrap><img src="/template/wannasurf/images/spot_consistency_2.gif" border="0" alt=""></td>
+    <td nowrap>All surfers</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="wanna-clear"></div>
+
+<!-- Template: yellowPages_business_stats_and_shortlist.html -->
+
+<div id="wanna-directory-block">
+
+  <div class="wanna-more-link5-block wanna-more-link5-title">
+    <div class="wanna-more-link5dir-right">Local professional? <a href="/professionals/directory.html" class="wanna-icon-blue-arrow wanna-more-link3">Add your surf business</a>
+</div>
+    <div class="wanna-more-link5-left"><h3 class="wanna-business-title">Business directory</h3></div>
+  </div>
+  <div class="wanna-clear"></div>
+
+  <div style="margin:0px; margin-top:-15px;padding:0px;">
+    <div id="wanna-directory-item-listings">
+      <ul class="wanna-vertical-tabs-nav-directory ui-tabs-nav">
+<li class="wanna-vertical-tabs-nav-top ui-tabs-selected"><a href="index.html?wdaction=lib.WDPageDirectory.show&amp;ypu=L2RpcmVjdG9yeS9zZWFyY2gtYWxsLnBocD9zdWJtaXQ9U2VhcmNoJmJvb2xlYW5fdHlwZT1BTkQmbG9jYXRpb249NDAwMDMwMg==" class="wanna-directory-category-link">Show all (0)...</a></li>
+      <li class="wanna-tabs-nav-text">surf tours (0)
+</li>
+<li class="wanna-tabs-nav-text">surf shops and shapers (0)
+</li>
+<li class="wanna-tabs-nav-text">surf schools (0)
+</li>
+<li class="wanna-tabs-nav-text">sleep &amp; eat (0)
+</li>
+<li class="wanna-tabs-nav-text">rent a car, others (0)
+</li>
+
+      </ul>
+</div>
+    <div id="wanna-directory-item-listings-all" class="wanna-vertical-tabs-panel-directory ui-tabs-panel">
+<div id="wanna-directory-listings">
+<ul class="wanna-directory-listings">
+<li>
+</ul>
+</div>
+</div>
+  </div>
+  <div class="wanna-clear"></div>
+</div>
+
+
+
+
+
+
+
+<div id="wanna-item-photovideo-2columns-left">
+<h3 class="wanna-item">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/photo/index.html?wdaction=lib.WDPageNews.showRSS"><img src="/template/wannaskin2/images/wanna-icon-rss.gif" width="16" height="16" alt=""></a> Photos</h3>
+<div class="wanna-add-text-to-paragraph"><p></p></div>
+<p><a href="photo/index.html" class="wanna-showall-link">Show all (255)...</a></p>
+
+<!-- Template : doVisitPhotoThumbernails.html -->
+
+
+<div class="wanna-center"></div>
+<table id="wanna-table-photo-content" class="wanna-tablesorter"><tbody>
+<tr>
+<td valign="top">
+<div class="wanna-photovideo-cell">
+  <div class="wanna-photovideo-cell-img">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/index.html?wdaction=lib.WDPagePhoto.show&amp;file_id=77840#wanna-content" title="Click to enlarge the picture." class="wanna-sublink"><img src="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/ico_Moppys1.jpg" width="150" height="113" border="0" alt="surf photo"></a>
+  </div>
+  <p><a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street" class="wanna-sublink">92nd street</a><br>United States of America</p>
+</div>
+</td>
+
+<td valign="top">
+<div class="wanna-photovideo-cell">
+  <div class="wanna-photovideo-cell-img">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/index.html?wdaction=lib.WDPagePhoto.show&amp;file_id=77842#wanna-content" title="Click to enlarge the picture." class="wanna-sublink"><img src="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/ico_rockawaylores.jpg" width="150" height="99" border="0" alt="surf photo"></a>
+  </div>
+  <p><a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street" class="wanna-sublink">92nd street</a><br>United States of America</p>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<div class="wanna-photovideo-cell">
+  <div class="wanna-photovideo-cell-img">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/index.html?wdaction=lib.WDPagePhoto.show&amp;file_id=77843#wanna-content" title="Click to enlarge the picture." class="wanna-sublink"><img src="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street/photo/ico_photo3d3efd014b7a4.jpg" width="120" height="83" border="0" alt="surf photo"></a>
+  </div>
+  <p><a href="/spot/North_America/USA/North_East/Long_Island_NY/92nd_street" class="wanna-sublink">92nd street</a><br>United States of America</p>
+</div>
+</td>
+
+<td valign="top">
+<div class="wanna-photovideo-cell">
+  <div class="wanna-photovideo-cell-img">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty/photo/index.html?wdaction=lib.WDPagePhoto.show&amp;file_id=77859#wanna-content" title="Click to enlarge the picture." class="wanna-sublink"><img src="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty/photo/ico_photo_surf_USA_North_East_Long_Island_NY_connecticut_street_jetty_44759a696b76c.jpg" width="120" height="90" border="0" alt="surf photo"></a>
+  </div>
+  <p><a href="/spot/North_America/USA/North_East/Long_Island_NY/connecticut_street_jetty" class="wanna-sublink">Connecticut street jetty</a><br>United States of America</p>
+</div>
+</td>
+
+
+</tr>
+</tbody></table>
+<div class="wanna-clear"></div>
+<div class="wanna-center"></div>
+
+
+
+
+
+
+
+</div>
+<div id="wanna-item-photovideo-2columns-right">
+<h3 class="wanna-item">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/video/index.html?wdaction=lib.WDPageNews.showRSS"><img src="/template/wannaskin2/images/wanna-icon-rss.gif" width="16" height="16" alt=""></a> Videos</h3>
+<div class="wanna-add-text-to-paragraph"><p></p></div>
+<p><a href="video/index.html" class="wanna-showall-link">Show all (1)...</a></p>
+
+<!-- Template : doVisitVideoThumbernails.html -->
+
+
+<p>No video available</p>
+<!--<p class="wanna-center"></p>-->
+
+
+
+
+
+</div>
+<div class="wanna-clear"></div>
+
+<div id="wanna-item-logtrip-2columns-left">
+<h3 class="wanna-item">
+<a href="/community/index.php?option=com_wclogbook&amp;task=lastLogs&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY"><img src="/template/wannaskin2/images/wanna-icon-rss.gif" width="16" height="16" alt=""></a> Last surf sessions</h3>
+<div class="wanna-add-text-to-paragraph"><p></p></div>
+<p><a href="/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showLogbook&amp;lbk_view=table&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY" class="wanna-showall-link">Show all (16)...</a></p>
+<div class="wanna-clear"></div>
+<!-- Start Template: ATLAS_logbook -->		<table cellpadding="0" cellspacing="0" class="moduletable"><tr>
+<td>
+				<!-- Template: WCLBKlastLogFull.html -->
+<div id="wanna-wclogbook-logfull-2831" class="wanna-wclogbook-logfull">
+<table><tr>
+<td valign="top" width="50">
+<a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=22457"><img src="/community/components/com_comprofiler/images/english/tnnophoto.jpg" width="40" border="0" alt=""></a><br>
+</td>
+  <td valign="top">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/lincoln" class="wanna-community-spot-title">Lincoln</a><!--, United States of America--><br>
+  By <a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=22457" class="wanna-community-profile-link">ballennonstop</a><br><span class="wanna-community-date">Aug  1, 2009</span><br><b>Zoo</b> - <br><a href="/community/index.php?option=com_wclogbook&amp;Itemid=&amp;task=showLog&amp;lbk_id=2831" class="wanna-icon-blue-arrow wanna-more-link3">More...</a>
+</td>
+</tr></table>
+</div>
+<div id="wanna-wclogbook-logfull-1973" class="wanna-wclogbook-logfull">
+<table><tr>
+<td valign="top" width="50">
+<a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900"><img src="/images/comprofiler/19900_4857ade96fbf6.jpg" width="40" border="0" alt="Vixen553 avatar"></a><br>
+</td>
+  <td valign="top">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo" class="wanna-community-spot-title">Gilgo</a><!--, United States of America--><br>
+  By <a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900" class="wanna-community-profile-link">Vixen553</a><br><span class="wanna-community-date">Jun 24, 2008</span><br><b></b> - <br><a href="/community/index.php?option=com_wclogbook&amp;Itemid=&amp;task=showLog&amp;lbk_id=1973" class="wanna-icon-blue-arrow wanna-more-link3">More...</a>
+</td>
+</tr></table>
+</div>
+<div id="wanna-wclogbook-logfull-1970" class="wanna-wclogbook-logfull">
+<table><tr>
+<td valign="top" width="50">
+<a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900"><img src="/images/comprofiler/19900_4857ade96fbf6.jpg" width="40" border="0" alt="Vixen553 avatar"></a><br>
+</td>
+  <td valign="top">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo" class="wanna-community-spot-title">Gilgo</a><!--, United States of America--><br>
+  By <a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900" class="wanna-community-profile-link">Vixen553</a><br><span class="wanna-community-date">Jun 23, 2008</span><br><b></b> - <br><a href="/community/index.php?option=com_wclogbook&amp;Itemid=&amp;task=showLog&amp;lbk_id=1970" class="wanna-icon-blue-arrow wanna-more-link3">More...</a>
+</td>
+</tr></table>
+</div>
+<div id="wanna-wclogbook-logfull-1974" class="wanna-wclogbook-logfull">
+<table><tr>
+<td valign="top" width="50">
+<a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900"><img src="/images/comprofiler/19900_4857ade96fbf6.jpg" width="40" border="0" alt="Vixen553 avatar"></a><br>
+</td>
+  <td valign="top">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo" class="wanna-community-spot-title">Gilgo</a><!--, United States of America--><br>
+  By <a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900" class="wanna-community-profile-link">Vixen553</a><br><span class="wanna-community-date">Jun 20, 2008</span><br><b></b> - <br><a href="/community/index.php?option=com_wclogbook&amp;Itemid=&amp;task=showLog&amp;lbk_id=1974" class="wanna-icon-blue-arrow wanna-more-link3">More...</a>
+</td>
+</tr></table>
+</div>
+<div id="wanna-wclogbook-logfull-1960" class="wanna-wclogbook-logfull">
+<table><tr>
+<td valign="top" width="50">
+<a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900"><img src="/images/comprofiler/19900_4857ade96fbf6.jpg" width="40" border="0" alt="Vixen553 avatar"></a><br>
+</td>
+  <td valign="top">
+  <a href="/spot/North_America/USA/North_East/Long_Island_NY/gilgo" class="wanna-community-spot-title">Gilgo</a><!--, United States of America--><br>
+  By <a href="/community/index.php?option=com_comprofiler&amp;task=userProfile&amp;Itemid=3&amp;user=19900" class="wanna-community-profile-link">Vixen553</a><br><span class="wanna-community-date">Jun 19, 2008</span><br><b></b> - <br><a href="/community/index.php?option=com_wclogbook&amp;Itemid=&amp;task=showLog&amp;lbk_id=1960" class="wanna-icon-blue-arrow wanna-more-link3">More...</a>
+</td>
+</tr></table>
+</div>
+
+
+<!--{LOG_RSS_LINK}-->
+
+
+
+
+
+			</td>
+		</tr></table>
+</div>
+<div id="wanna-item-logtrip-2columns-right">
+<h3 class="wanna-item">
+<a href="/community/index.php?option=com_wclogbook&amp;task=lastTrips&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY"><img src="/template/wannaskin2/images/wanna-icon-rss.gif" width="16" height="16" alt=""></a> Last surf trips</h3>
+<div class="wanna-add-text-to-paragraph"><p></p></div>
+<p><a href="/community/index.php?option=com_wclogbook&amp;Itemid=9999&amp;task=showTrips&amp;lbk_view=table&amp;geopath=/spot/North_America/USA/North_East/Long_Island_NY" class="wanna-showall-link">Show all (0)...</a></p>
+<div class="wanna-clear"></div>
+<!-- Start Template: ATLAS_trips -->		<table cellpadding="0" cellspacing="0" class="moduletable"><tr>
+<td>
+				<!-- Template: WCLBKlastTripFull.html -->
+No surf trip
+
+<!--{TRIP_RSS_LINK}-->
+
+
+			</td>
+		</tr></table>
+</div>
+<div class="wanna-clear"></div>
+
+
+<h3 class="wanna-item">
+<a href="/spot/North_America/USA/North_East/Long_Island_NY/comment/index.html?wdaction=lib.WDPageNews.showRSS"><img src="/template/wannaskin2/images/wanna-icon-rss.gif" width="16" height="16" alt=""></a> Comments</h3>
+<div class="wanna-add-text-to-paragraph">
+<p>  <script type="text/javascript">
+    jWC(document).ready(function() {
+        jWC('#56006b9b575a4').removeAttr("href");
+        jWC('#56006b9b575a4').bubbletip('#56006b9b575a4-block', {
+            deltaDirection: 'right'
+        });
+    });
+  </script></p>
+<div id="56006b9b575a4-block" style="display:none;"><p>Please <a href="/community/index.php?option=com_login&amp;Itemid=9999" target="_parent" class="wanna-more-link3">login</a> to use this tool.<br>No account yet? <a href="/community/index.php?option=com_comprofiler&amp;Itemid=9999&amp;task=registers" class="wanna-more-link3" target="_parent">Register</a> first; it's free!</p></div>
+  <a id="56006b9b575a4" href="comment/index.html?wdaction=lib.WDPageComment.add" class="wanna-icon-blue-arrow wanna-more-link3" style="color:#1898e1;">Add comment</a>
+</div>
+<p><a href="comment/index.html?wdaction=lib.WDPageComment.show" class="wanna-showall-link">Show all (64)...</a></p>
+
+<div class="wanna-comment-line">
+<a name="info_id219280"></a>
+<p class="wanna-comment-container"> By Monroe ST LOcals
+, <span class="wanna-community-date">17-11-2008</span></p>
+<p><b>LOCALISM too you Barneysss</b> - To you nyc people just stay in the city and surf rockaway its not ah bad break....Long beach is super crowded already no need to come down and drop in on everyone around and think its ok... You shouldnt come here if your not atleast from nassau..... Stay out pleaseee !!!! thankyouuu</p>
+
+</div>
+
+<div class="wanna-comment-line">
+<a name="info_id218151"></a>
+<p class="wanna-comment-container"> By Anonymous
+, <span class="wanna-community-date">03-09-2008</span></p>
+<p><b>surfing long island</b> - hi,<br><br>
+i live and study in munich germany and i'll visit new york next week. even though there is little opportunity in munich to surf i'm a passionate surfer since i started surfing last year in spain. this year i went to the canary islands for surfing. of course my surfing skills are still very limited. since i'll be in new york for a week i really want to check out the waves there and go surfing for one or two days. <br>
+i'd be very grateful if you gave me some piece of advise for instance on which, not too crowded beach, i can rent a board.<br><br>
+greetz martin</p>
+
+</div>
+
+<div class="wanna-comment-line">
+<a name="info_id216680"></a>
+<p class="wanna-comment-container"> By Anonymous
+, <span class="wanna-community-date">27-05-2008</span></p>
+<p><b>NYC to LB</b> - Ignore LBC, he is a liar and thinks being a surfer entitles him to be a douche. I live in the city and surf LB all the time and most people there are cool and I have never been hassled. It is crowded during the summer though; however wimpy summer waves are not worth fighting someone over. To the person asking for surf shop and lesson advice, I have always been treated well by Unsound Surf and they can hook you up with someone for lessons (ask for Candice). LB Surf is also a good shop with a large selection of boards. Fun shapes are good beginner boards but just talk to someone who surfs that works at the shop and they will steer you in the right direction. As far as cost, buy a used board for your first if you can.</p>
+
+</div>
+
+
+
+
+<h3 class="wanna-item">Errors, Feedback</h3>
+<p>You can edit this page to correct errors or add new information. If you have any problems regarding this page, <a href="index.html?wdaction=lib.WDPageFeedback.feedback&amp;fb_type=spot" class="wanna-ico-mail wanna-more-link3">Send us feedback.</a></p>
+
+<div class="wanna-like-button">
+  <div class="wanna-twitter-like-button">
+<!-- Template: twitter_like.html -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?lang=en&amp;url=http%3A%2F%2Fwww.wannasurf.com%2F%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY&amp;count=horizontal" style="width:110px; height:20px;">
+</iframe>
+</div>
+  <div class="wanna-facebook-like-button">
+<!-- Template: facebook_like.html -->
+<iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&amp;href=http%3A%2F%2Fwww.wannasurf.com%2F%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY&amp;layout=button_count&amp;show_faces=false&amp;width=190&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:190px; height:20px;" allowtransparency="true"></iframe>
+</div>
+</div>
+
+
+
+
+  </div>
+<!-- End of wanna-content-center -->
+
+  <div id="wanna-content-right">
+    
+  
+    
+
+    <div></div>
+  
+    <div class="wanna-more-link5-block wanna-title-box-top">
+      <div class="wanna-more-link5r2-right"><a href="/professionals/banners.html" class="wanna-more-link-text wanna-icon-blue-arrow">More info</a></div>
+      <div class="wanna-more-link5-left"><h3 class="wanna-more-link5-title">Advertise </h3></div>
+    </div>
+    
+<!-- Advertizing template: phpadsnew_template.html -->
+
+<div class="wanna-ads-box"><div class="wanna-ads-title"><div class="wanna-adblocker-MAIN_300x250">
+<script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.wannacorp.com/www/delivery/ajs.php':'http://ads.wannacorp.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u+'?');
+   document.write ('&amp;what=advert1,_wannasurf&amp;target=_blank');
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&amp;context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>-->
+</script><noscript>
+   <a href="http://ads.wannacorp.com/www/delivery/ck.php?n=a0df73fd&amp;cb=4442413" target="_blank"><img src="http://ads.wannacorp.com/www/delivery/avw.php?what=advert1,_wannasurf&amp;cb=4442413&amp;n=a0df73fd" border="0" alt=""></a>
+</noscript>
+</div></div></div>
+
+
+    
+
+    
+<!-- Template: menu_mobile_smartphone.html -->
+
+<div id="wanna-24-24">
+<h5 class="wanna-24-24-title">On the Go!</h5>
+<p>Wannasurf.com on your mobile</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.wannacorp.wannasurf"><img src="/template/wannaskin2/images/googleplay-badge.gif" alt="Google Play Application" width="300" height="104"></a></p>
+<p class="wanna-ico-item-rss"><a href="/help/index.html?wdaction=lib.WDPageHelp.rss" class="wanna-more-link-text">RSS</a> All the RSS feeds of Wannasurf.com</p>
+<p class="wanna-ico-file"><a href="/newsletter/index.html" class="wanna-more-link-text">Newsletter</a> All news by email</p>
+</div>
+
+
+    <table width="100%"><tr>
+<td>
+<!-- Advertizing template: phpadsnew_template.html -->
+
+<div class="wanna-ads-box"><div class="wanna-ads-title"><div class="wanna-adblocker-WIDESKYSCRAPER_160x600a">
+<script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.wannacorp.com/www/delivery/ajs.php':'http://ads.wannacorp.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u+'?');
+   document.write ('&amp;what=advert2,_wannasurf&amp;target=_blank');
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&amp;context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>-->
+</script><noscript>
+   <a href="http://ads.wannacorp.com/www/delivery/ck.php?n=a0df73fd&amp;cb=3270845" target="_blank"><img src="http://ads.wannacorp.com/www/delivery/avw.php?what=advert2,_wannasurf&amp;cb=3270845&amp;n=a0df73fd" border="0" alt=""></a>
+</noscript>
+</div></div></div>
+</td>
+      <td>
+<!-- Advertizing template: phpadsnew_template.html -->
+
+<div class="wanna-ads-box"><div class="wanna-ads-title"><div class="wanna-adblocker-WIDESKYSCRAPER_160x600b">
+<script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ads.wannacorp.com/www/delivery/ajs.php':'http://ads.wannacorp.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u+'?');
+   document.write ('&amp;what=advert2i,_wannasurf&amp;target=_blank');
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&amp;context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>-->
+</script><noscript>
+   <a href="http://ads.wannacorp.com/www/delivery/ck.php?n=a0df73fd&amp;cb=6782085" target="_blank"><img src="http://ads.wannacorp.com/www/delivery/avw.php?what=advert2i,_wannasurf&amp;cb=6782085&amp;n=a0df73fd" border="0" alt=""></a>
+</noscript>
+</div></div></div>
+</td>
+    </tr></table>
+<!-- Template: facebook_like_box.html --><h3>Friends of Wannasurf</h3>
+<div style="text-align:center;">
+<iframe src="http://www.facebook.com/plugins/likebox.php?id=119325808108877&amp;width=300&amp;connections=10&amp;stream=false&amp;header=false&amp;height=267" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:267px;"></iframe>
+</div>
+
+
+    
+<!-- Template: store_carousel.html -->
+
+<div id="wanna-store-block">
+  <h5 class="wanna-shop-title">Wanna<span style="color:black;">surf</span> Online Shop <span class="wanna-shop-title-arrow-icon"></span>
+</h5>
+  <div id="wanna-shop-content">
+  <ul id="wanna-store-carousel" class="jcarousel-skin-tango">
+<li><a href="/store/index.html"><img src="/template/wannaskin2/images/store/wanna-store-wannasurf-tshirt-280.png" width="175" height="200" alt="" border="0"></a></li>
+    <li><a href="/store/index.html"><img src="/template/wannaskin2/images/store/wanna-store-wannasurf-tshirt2-280.png" width="175" height="200" alt="" border="0"></a></li>
+    <li><a href="/store/index.html"><img src="/template/wannaskin2/images/store/wanna-store-wannasurf-tshirt3-280.png" width="175" height="200" alt="" border="0"></a></li>
+  </ul>
+</div>
+</div>
+
+    
+
+  </div>
+<!-- End of wanna-content-right -->
+</div>
+<!-- End of wanna-content-wrapper -->
+
+<div class="wanna-clear"></div>
+
+<div id="wanna-footer-wrapper">
+  <div id="wanna-footer-center">
+
+  <div id="wanna-footer-copyright" class="wanna-small-text">© Wannasurf.com ltd - All right reserved</div>
+  <div id="wanna-footer-links" class="wanna-small-text">
+    <!--<a href="/site/index.html">Site map</a>
+    |&nbsp;--><a href="/help/index.html?wdaction=lib.WDPageHelp.termsofuse">Terms of use</a>
+    | <a href="/help/index.html?wdaction=lib.WDPageHelp.copyright">Copyright</a>
+    | <a href="/professionals/index.html">Advertising Info</a>
+    | <a href="/site/feedback/index.html">Contact</a>
+  </div>
+  <div id="wanna-footer-separator" class="wanna-title-continent-underline"></div>
+  <div id="wanna-footer-wanna-sites" class="wanna-small-text">Wanna Atlas:</div>
+  <div id="wanna-footer-wanna-atlas-list" class="wanna-small-text">
+<!-- Template: doVisitWannaPromoteHTML -->
+
+<a href="http://www.wannasurf.com" target="_blank" title="Wannacorp atlas website">Wannasurf.com</a> | 
+<a href="http://www.wannadive.net" target="_blank" title="Wannacorp atlas website">Wannadive.net</a> | 
+<a href="http://www.wannakitesurf.com" target="_blank" title="Wannacorp atlas website">Wannakitesurf.com</a> | 
+<a href="http://www.wannask8.com" target="_blank" title="Wannacorp atlas website">Wannask8.com</a> | 
+
+
+</div>
+  </div>
+<!-- End of wanna-footer-center-->
+
+  <div id="wanna-footer-right"><ul class="wanna-syndicate-links">
+<li>
+<span class="wanna-ico-share-facebook"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Digg It" align="middle" height="16" width="16"></span> <a href="http://www.facebook.com/" onclick="window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href)+'&amp;t='+encodeURIComponent(document.title),'sharer','toolbar=0,status=0,width=760,height=450'); return false;"><!-- <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F" target="_blank">-->facebook</a>
+</li>
+  <li>
+<span class="wanna-ico-share-twitter"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Twitter" align="middle" height="16" width="16"></span> <a href="http://twitter.com/" onclick="window.open('http://twitter.com/timeline/home?status='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'twitter','toolbar=0,status=0,width=760,height=450'); return false;">twitter</a>
+</li>
+  <li>
+<span class="wanna-ico-share-delicious"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Delicious" align="middle" height="16" width="16"></span> <a href="http://del.icio.us" onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=700,height=400'); return false;"><!--<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F&amp;title=Long Island NY - Surfing in Long Island NY, United States of America - WannaSurf, surf spots atlas, surfing photos, maps, GPS location" target="_blank">-->del.icio.us</a>
+</li>
+  <li>
+<span class="wanna-ico-share-digg"><img src="/template/wannaskin2/images/wanna-empty.gif" alt="Digg It" align="middle" height="16" width="16"></span> <a href="http://www.digg.com/submit?phase=1&amp;url=http%3A%2F%2Fwww.wannasurf.com%2Fspot%2FNorth_America%2FUSA%2FNorth_East%2FLong_Island_NY%2F" target="_blank">digg</a>
+</li>
+</ul></div>
+</div> <!-- End of wanna-footer-wrapper-->
+
+<div class="wanna-clear"></div>
+
+</div></div> <!-- End wanna-main-wrapper -->
+</body>
+</html>
