@@ -3,7 +3,8 @@ $(document).ready(function(){
   $.ajax({
     type: "GET",
     // url:  "http://localhost:3000/spots",
-    url:  "https://surfiesta.herokuapp.com/spots",
+    // url:  "https://surfiesta.herokuapp.com/spots",
+    url:  "/spots",
     success: function(spots){
       dom_spots = $(".spots");
       $.each(spots, function(index, spot){
