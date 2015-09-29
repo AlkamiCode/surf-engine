@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require turbolinks
-//= require jquery-ui/accordion
+//= require jquery-ui
 
 $(function() {
   $( "#accordion" ).accordion({

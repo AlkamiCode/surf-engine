@@ -30,4 +30,5 @@ $(document).ready(function () {
     });
   });
 
+  $('#search-hand').effect("bounce", { times:10 }, 6000);
 });
