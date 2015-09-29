@@ -19,6 +19,7 @@ gem "figaro"
 gem "omniauth-facebook"
 gem "puma"
 gem "responders"
+gem "skylight"
 
 group :development, :test do
   gem "rspec-rails"
