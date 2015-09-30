@@ -1,10 +1,19 @@
+#accordion .ui-accordion-header {
+  background-color: $blue;
+  height: 2.5em;
+}
+
 .ui-accordion .ui-accordion-icons {
   font-weight: 600;
-  color: $orange;
+  color: $brown;
+  &:hover {
+    color: $cream;
+  }
 }
 
 .ui-accordion-content {
-  background-color: $blue;
+  background-color: $cream;
+  font-color: $brown;
 }
 
 .glyphicon-hand-up {

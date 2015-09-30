@@ -1,8 +1,3 @@
-/*
- *= require jquery-ui/accordion
- *= require font-awesome
-*/
-
 /* Color Pallete */
 $blue:   #70BBB5;
 $brown:  #3F2E13;
@@ -12,6 +7,8 @@ $cream:  #EDDDB8;
 
 @import "bootstrap-sprockets";
 @import "bootstrap-custom";
+@import "font-awesome";
+@import "jquery-ui/accordion";
 @import "goog-maps";
 @import "home";
 @import "nav-bar";
