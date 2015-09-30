@@ -2,33 +2,73 @@
   margin-bottom: 0px;
 }
 .img-circle {
-  width: 70%;
-  border-radius: 30%;
+  width: 80%;
+  background-color: $orange;
 }
 
 .img-thumbnail {
-  margin-top: 5%;
+  margin-top: 7%;
+  background-color: $orange;
 }
 
 .filter {
   padding-top: .5em;
-  label {
-    font-size: 0.8em;
-    &:after {
-      content: ': ';
-    }
-  }
-  select, input {
-    margin-right: 1em;
-  }
 }
 
-.container-fluid {
-  background-color: $cream;
+.navbar-default .navbar-collapse, .navbar-default {
+  background-color: $brown;
+  border: none;
 }
 
 .navbar-default .navbar-brand {
+  color: $blue;
+  font-size: medium;
+  &:hover {
+    color: $baige;
+  }
+}
+
+input#spot_filter_name {
+  background-color: $cream;
+}
+
+.navbar-default .navbar-nav > li > a {
   color: $orange;
+  font-size: small;
+  &:hover {
+    color: $baige;
+  }
+}
+
+.glyphicon-off {
+  color: maroon;
+  font-size: medium;
+  &:hover {
+    color: red;
+  }
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background-color: $brown;
+  &:hover {
+    background-color: $cream;
+  }
+  &:focus {
+    background-color: $brown;
+    color: $orange;
+  }
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: $cream;
+}
+
+.dropdown-menu > li > a {
+  font-weight: 600;
+  &:hover {
+    color: $orange;
+    background-color: $cream;
+  }
 }
 
 /*.navbar-brand {
