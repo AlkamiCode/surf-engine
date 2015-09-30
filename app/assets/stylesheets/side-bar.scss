@@ -41,3 +41,14 @@
   font-weight: 500;
   text-align: right;
 }
+
+.spot .glyphicon-heart-empty, .glyphicon-heart {
+  float: right;
+}
+
+.glyphicon-heart-empty, .glyphicon-heart {
+  font-size: medium;
+  &:hover {
+    color: $orange;
+  }
+}

@@ -23,8 +23,6 @@ gem "responders"
 gem "skylight"
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "capybara"
   gem "pry"
   gem "launchy"
   gem "better_errors"
@@ -33,6 +31,11 @@ group :development, :test do
 end
 
 group :test do
-  gem "vcr"
-  gem "webmock"
+  gem 'rspec-rails', :group => :development
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  # gem 'poltergeist'
+  # gem "vcr"
+  # gem "webmock"
 end

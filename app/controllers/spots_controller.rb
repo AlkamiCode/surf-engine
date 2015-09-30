@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with Spot.where.not(latitude: nil)
+    respond_with Spot.where.not(latitude: nil).sample(50)
   end
 
   def show

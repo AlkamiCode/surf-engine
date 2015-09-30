@@ -1,15 +1,36 @@
+require 'capybara/rspec'
+require 'capybara/webkit/matchers'
+Capybara.javascript_driver = :webkit
+# require 'capybara/poltergeist'
+# Capybara.javascript_driver = :poltergeist
+
 require "simplecov"
 SimpleCov.start
 
-require 'webmock'
-require 'vcr'
 
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/cassettes"
-  config.hook_into :webmock
-end
+# require 'webmock'
+# require 'vcr'
+
+# VCR.configure do |config|
+#   config.cassette_library_dir = "spec/cassettes"
+#   config.hook_into :webmock
+# end
 
 RSpec.configure do |config|
+
+  # config.use_transactional_fixtures = false
+
+  # config.before(:each) do
+  #   DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+  #   DatabaseCleaner.start
+  # end
+
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
+
+  config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -28,10 +49,10 @@ RSpec.configure do |config|
         "info"=>
         {
           "name"=>"Sky Fly",
-          "image"=>"http://graph.facebook.com/6025461810/picture",
+          "image"=> "http://graph.facebook.com/6025461810/picture",
         },
         "credentials"=> {
-          "token"=> "555666777"
+          "token"=> "5498346756"
         }
       }
     )
