@@ -16,16 +16,16 @@ RSpec.describe User, type: :model do
     end
 
     it "has a uid" do
-      expect(user.uid).to eq "56025461"
+      expect(user.uid).to eq "5602546181"
     end
 
     it "has a username" do
-      expect(user.username).to eq "Dmitry Fly"
+      expect(user.username).to eq "Sky Fly"
       expect(user.username).to_not eq "slinky"
     end
 
     it "has an image" do
-      expect(user.image_url).to eq "http://graph.facebook.com/602546181/picture"
+      expect(user.image_url).to eq "http://graph.facebook.com/6025461810/picture"
     end
 
     it "has a token" do

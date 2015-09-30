@@ -18,21 +18,20 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-
   def oauth_data
     OmniAuth.config.test_mode = true
 
     OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
       {
         "provider"=>"facebook",
-        "uid"=>"56025461",
+        "uid"=>"5602546181",
         "info"=>
         {
-          "name"=>"Dmitry Fly",
-          "image"=>"http://graph.facebook.com/602546181/picture",
+          "name"=>"Sky Fly",
+          "image"=>"http://graph.facebook.com/6025461810/picture",
         },
         "credentials"=> {
-          "token"=> Figaro.env.FACEBOOK_User_TOKEN
+          "token"=> "555666777"
         }
       }
     )
