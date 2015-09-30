@@ -3,6 +3,11 @@
 }
 .img-circle {
   width: 70%;
+  border-radius: 30%;
+}
+
+.img-thumbnail {
+  margin-top: 5%;
 }
 
 .filter {
@@ -16,6 +21,14 @@
   select, input {
     margin-right: 1em;
   }
+}
+
+.container-fluid {
+  background-color: $cream;
+}
+
+.navbar-default .navbar-brand {
+  color: $orange;
 }
 
 /*.navbar-brand {

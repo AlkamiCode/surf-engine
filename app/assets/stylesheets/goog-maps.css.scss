@@ -2,10 +2,14 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: $brown;
+  margin-right: .5%;
+  margin-left: .5%;
 }
 
 #map {
-  height: 80%;
+  height: 85%;
+  margin-top: 1%;
   // border: 2px solid green;
   /*width: 1024px;
   width: 70%;*/
