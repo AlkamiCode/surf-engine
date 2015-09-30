@@ -1,9 +1,14 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  attr_reader :user
   context "a valid user" do
     before do
-      login_user
+      @user = User.find_or_create_from_auth(oauth_data)
+    end
+
+    it "responds to 'find_or_create_by'" do
+      expect(User).to respond_to(:find_or_create_by)
     end
 
     it "has a provider" do
@@ -11,16 +16,16 @@ RSpec.describe User, type: :model do
     end
 
     it "has a uid" do
-      expect(user.uid).to eq "987654"
+      expect(user.uid).to eq "56025461"
     end
 
     it "has a username" do
-      expect(user.username).to eq "binky"
+      expect(user.username).to eq "Dmitry Fly"
       expect(user.username).to_not eq "slinky"
     end
 
     it "has an image" do
-      expect(user.image_url).to eq "https://pbs.twimg.com/profile_images/589490282888060929/zkxLsGbY.jpg"
+      expect(user.image_url).to eq "http://graph.facebook.com/602546181/picture"
     end
 
     it "has a token" do
