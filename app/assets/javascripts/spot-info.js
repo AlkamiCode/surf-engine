@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     $.ajax({
       type: "GET",
-      url:  "/spots/first",
+      url:  "/spots",
       success: function(spots){
         dom_spots = $(".spots");
         console.log("Fetched all spots!")
@@ -24,21 +24,21 @@ $(document).ready(function(){
       }
     })
 
-    $.ajax({
-      type: "GET",
-      url:  "/spots/last",
-      success: function(spots){
-        dom_spots = $(".spots");
-        console.log("Fetched all spots!")
-        spots.forEach(function(spot){
-          var raw_dom_spot = spotElements(spot)
-          dom_spots.append(raw_dom_spot)
-          var dom_spot = dom_spots.children().last().prev()
-          add_handler(dom_spot)
-          add_like_handler(dom_spot)
-        })
-        dom_spots.accordion("refresh");
-      }
-    })
+    // $.ajax({
+    //   type: "GET",
+    //   url:  "/spots/last",
+    //   success: function(spots){
+    //     dom_spots = $(".spots");
+    //     console.log("Fetched all spots!")
+    //     spots.forEach(function(spot){
+    //       var raw_dom_spot = spotElements(spot)
+    //       dom_spots.append(raw_dom_spot)
+    //       var dom_spot = dom_spots.children().last().prev()
+    //       add_handler(dom_spot)
+    //       add_like_handler(dom_spot)
+    //     })
+    //     dom_spots.accordion("refresh");
+    //   }
+    // })
   })
 });
