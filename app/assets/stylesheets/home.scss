@@ -6,13 +6,13 @@
   opacity: .9;
   min-height: 70vh;
   width: 80%;
-  border-top: 3em solid white;
 }
 
 .container-login {
   background-color: white;
   min-height: 30vh;
   text-align: center;
+  width: 80%;
 }
 
 .home {
@@ -21,13 +21,14 @@
 }
 
 h1.home {
-  font-size: 50px;
+  font-style: $kaushan;
+  font-size: 60px;
   font-weight: 300;
   color: $brown;
 }
 
 h2.home {
-  font-size: 30px;
+  font-size: 40px;
   color: $orange;
 }
 
