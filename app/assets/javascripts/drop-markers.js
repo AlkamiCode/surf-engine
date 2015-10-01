@@ -7,6 +7,11 @@ function add_handler(spot) {
     position = {lat: spot.data('lat'), lng: spot.data('lon')}
     clearMarkers();
     addMarkerWithTimeout(position, 1000)
+
+    // var infoWindow = marker.infoWindow; // retrieve the InfoWindow object
+    // infoWindow.open(map); // Trigger the "open()" method
+    map.setCenter(position)
+    map.setZoom(6)
   });
 }
 

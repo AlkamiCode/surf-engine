@@ -4,6 +4,7 @@ $brown:  #3F2E13;
 $orange: #E1A63A;
 $baige:  #E2C582;
 $cream:  #EDDDB8;
+$kaushan: 'Kaushan Script', cursive;
 
 @import "bootstrap-sprockets";
 @import "bootstrap-custom";
@@ -14,3 +15,4 @@ $cream:  #EDDDB8;
 @import "nav-bar";
 @import "side-bar";
 @import "social-bar";
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);

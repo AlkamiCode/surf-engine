@@ -5,6 +5,7 @@
 
 .ui-accordion .ui-accordion-icons {
   font-weight: 600;
+  font-size: small;
   color: $brown;
   &:hover {
     color: $cream;
@@ -17,16 +18,21 @@
 }
 
 .glyphicon-hand-up {
-  font-size: large;
+  font-size: xx-large;
   top: 5px;
   color: $orange;
 }
 
 #search-hand {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 25%;
   color: $blue;
   z-index: 2;
+}
+
+h4 {
+  line-height: 3;
+  font-size: initial;
 }
 
 .sidebar {
@@ -38,7 +44,7 @@
 .table-condensed > tbody > tr > td {
   border-bottom: 1px solid $baige;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   text-align: right;
 }
 
@@ -47,7 +53,7 @@
 }
 
 .glyphicon-heart-empty, .glyphicon-heart {
-  font-size: medium;
+  font-size: larger;
   &:hover {
     color: $orange;
   }
