@@ -2,16 +2,19 @@ var image = 'assets/24-px-surf-icon.png';
 
 function add_handler(spot) {
   spot.on("click", function(){
-    // console.log(spot.data('lat'))
-    // console.log(spot.data('lon'))
-    position = {lat: spot.data('lat'), lng: spot.data('lon')}
-    clearMarkers();
-    addMarkerWithTimeout(position, 1000)
-
+    if(spot.hasClass('ui-state-active')) {
+      clearMarkers();
+      map.setCenter({lat: 37.090, lng: -95.712});
+      map.setZoom(3);
+    }
+    else {
+      position = {lat: spot.data('lat'), lng: spot.data('lon')}
+      addMarkerWithTimeout(position, 1000);
+      map.setCenter(position);
+      map.setZoom(6);
+    }
     // var infoWindow = marker.infoWindow; // retrieve the InfoWindow object
     // infoWindow.open(map); // Trigger the "open()" method
-    map.setCenter(position)
-    map.setZoom(6)
   });
 }
 
@@ -22,7 +25,7 @@ function addMarkerWithTimeout(position, timeout) {
       map:       map,
       animation: google.maps.Animation.DROP,
       icon:      image,
-      // animation: google.maps.Animation.BOUNCE
+      animation: google.maps.Animation.BOUNCE
     }));
   }, timeout);
 }
