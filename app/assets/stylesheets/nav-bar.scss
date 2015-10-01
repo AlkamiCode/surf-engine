@@ -12,10 +12,6 @@
   background-color: $brown;
 }
 
-.filter {
-  padding-top: .5em;
-}
-
 .navbar-default .navbar-collapse, .navbar-default {
   background-color: $brown;
   border: none;
@@ -86,4 +82,12 @@ a {
 .disabled {
   pointer-events: none;
   cursor: default;
+}
+
+span#basic-addon1 {
+  background-color: $orange;
+}
+
+form.navbar-form.navbar-left {
+  width: 200px;
 }
