@@ -82,3 +82,8 @@ a {
   font-family: $kaushan;
   font-size: large;
 }
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
