@@ -12,12 +12,15 @@
   background-color: $brown;
 }
 
-.navbar-default .navbar-collapse, .navbar-default {
+.navbar-default
+.navbar-collapse,
+.navbar-default {
   background-color: $brown;
   border: none;
 }
 
-.navbar-default .navbar-brand {
+.navbar-default
+.navbar-brand {
   font-family: $kaushan;
   color: $blue;
   font-size: xx-large;
@@ -35,6 +38,9 @@ input#spot_filter_name {
   font-size: medium;
   &:hover {
     color: $baige;
+  }
+  &:focus {
+    color: $orange;
   }
 }
 
