@@ -7,11 +7,7 @@ $(document).ready(function () {
 
     $('.spot').each(function (index, spot) {
       $spot = $(spot);
-      if ($spot.data('experience') === currentExperience) {
-        $spot.show();
-      } else {
-        $spot.hide();
-      }
+      $spot.toggle($spot.data('experience') === currentExperience);
     });
   });
 

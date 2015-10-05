@@ -1,9 +1,5 @@
 $(document).ready(function (){
-  $('.filter').on('keypress keydown keyup', function(e) {
-    if (e.which == 13) {
-      //alert(e.which);
-      e.preventDefault();
-      return false;
-    }
+  $('.spot_filter_name').on('submit', function(e) {
+    e.preventDefault();
   });
 })
