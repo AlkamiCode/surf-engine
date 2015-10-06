@@ -2,13 +2,12 @@ var image = "<%= asset_path('24-px-surf-icon.png') %>"
 
 function add_handler(spot) {
   spot.on("click", function(){
+    clearMarkers();
     if(spot.hasClass('ui-state-active')) {
-      clearMarkers();
       map.setCenter({lat: 37.090, lng: -95.712});
       map.setZoom(3);
     }
     else {
-      clearMarkers();
       var position = {lat: spot.data('lat'), lng: spot.data('lon')};
       addMarkerWithTimeout(position, 1000);
       map.setCenter(position);
