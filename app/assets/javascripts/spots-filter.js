@@ -12,6 +12,7 @@ $(document).ready(function () {
   });
 
   $('#spot_filter_name').on('keyup', function () {
+    clearMarkers();
     $('#accordion').accordion('option', {active: false});
 
     var currentName = this.value.toLowerCase();
