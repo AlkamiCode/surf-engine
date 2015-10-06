@@ -8,6 +8,7 @@ function add_handler(spot) {
       map.setZoom(3);
     }
     else {
+      clearMarkers();
       var position = {lat: spot.data('lat'), lng: spot.data('lon')};
       addMarkerWithTimeout(position, 1000);
       map.setCenter(position);
