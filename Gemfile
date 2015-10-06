@@ -22,6 +22,7 @@ gem "omniauth-facebook"
 gem "puma"
 gem "responders"
 gem "skylight"
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem "pry"
