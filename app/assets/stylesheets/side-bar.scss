@@ -58,3 +58,10 @@ h4 {
     color: $orange;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    height: 50%;
+    margin-top: 0;
+  }
+}

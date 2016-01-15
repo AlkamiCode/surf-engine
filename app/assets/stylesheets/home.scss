@@ -2,7 +2,7 @@
   background-color: $blue;
   background-image: image-url("home-header.jpg");
   background-size: cover;
-  background-postion: 50% 50%;
+  background-position: 70% 50%;
   opacity: .9;
   min-height: 70vh;
   width: 80%;
@@ -43,4 +43,10 @@ a.btn.btn-lg.btn-default.btn-home {
 
 a.btn.btn-lg.btn-default.btn-home:hover {
   opacity: 0.4;
+}
+
+@media screen and (max-width: 1000px) {
+  .btn-lg {
+    font-size: 38px;
+  }
 }
