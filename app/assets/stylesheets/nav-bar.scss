@@ -97,3 +97,18 @@ span#basic-addon1 {
 form.navbar-form.navbar-left {
   width: 200px;
 }
+
+@media screen and (max-width: 1000px) {
+  .navbar-default .navbar-nav > li > a {
+    font-size: xx-large;
+  }
+
+  .navbar-default
+  .navbar-brand {
+    display: none;
+  }
+
+  .glyphicon-off {
+    font-size: x-large;
+  }
+}
